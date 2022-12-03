@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titan+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    h1{
+        @apply text-5xl lg:text-7xl font-header mb-3 text-blue;
+    }
+    h2{
+        @apply text-3xl lg:text-6xl font-header mb-3 text-blue;
+    }
+    h3{
+        @apply text-2xl lg:text-5xl font-header mb-3 text-blue;
+    }
+    p{
+        @apply text-sm lg:text-base font-body;
+    }
+}
+
+.btn2 {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: transparent;
+    font-family: "Titan One", "cursive";
+    color:#104057;
+
+}
+
+.btn2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #08B7B3;
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+
+  .btn2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    z-index: -2;
+  }
+
+  .btn2:hover {
+        color: #fff;
+  }
+
+  .btn2:hover::before {
+    width: 100%;
+  }
+.btn1{
+    @apply bg-yellow px-5 py-3 rounded-[126px] tracking-wide font-header uppercase text-white self-center hover:text-[#875407] ease-in duration-300;
+}
