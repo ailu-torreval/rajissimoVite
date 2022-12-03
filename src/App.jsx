@@ -1,4 +1,3 @@
-// import "./App.css";
 import "./index.css";
 import React, { useState, useContext } from "react";
 import Website from "./Website";
@@ -22,7 +21,6 @@ function App() {
             showBurgerMenu={showBurgerMenu}
             setShowBurgerMenu={setShowBurgerMenu}
           />
-          <h1>  please work</h1>
           {showBurgerMenu && (
             <BurgerMenu
               showBurgerMenu={showBurgerMenu}
