@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import "./App.css";
+import React, { useState, useContext } from "react";
+import Website from "./Website";
+import OrderApp from "./OrderApp";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
+import BurgerMenu from "./components/BurgerMenu";
+import { LoginContext } from "./contexts/LoginContext";
+import { PageContext } from "./contexts/PageContext";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState("landingPage");
+  const [isLogin, setIsLogin] = useState(true);
+  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
+ 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>rajissimo is gonna work</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <LoginContext.Provider value={{ isLogin, setIsLogin }}>
+        <PageContext.Provider value={{ page, setPage }}>
+          <NavBar
+            showBurgerMenu={showBurgerMenu}
+            setShowBurgerMenu={setShowBurgerMenu}
+          />
+          {showBurgerMenu && (
+            <BurgerMenu
+              showBurgerMenu={showBurgerMenu}
+              setShowBurgerMenu={setShowBurgerMenu}
+            />
+          )}
+          {isLogin ? <OrderApp /> : <Website />}
+          <Footer />
+        </PageContext.Provider>
+      </LoginContext.Provider>
+    </>
+  );
 }
 
-export default App
+export default App;
+
