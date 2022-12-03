@@ -21,7 +21,7 @@ function App() {
             showBurgerMenu={showBurgerMenu}
             setShowBurgerMenu={setShowBurgerMenu}
           />
-          <h1>  DEL</h1>
+          <h1> DEL 2</h1>
           {showBurgerMenu && (
             <BurgerMenu
               showBurgerMenu={showBurgerMenu}
