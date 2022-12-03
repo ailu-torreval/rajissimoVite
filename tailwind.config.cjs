@@ -14,7 +14,7 @@ module.exports = {
         header: ["Titan One", "cursive"],
       },
       colors: {
-        cyan: "#08B7B3",
+        cyan: "#00D1C6",
         blue: "#104057",
         yellow: "#FCAF3E",
         darkyellow: "#A6680A",

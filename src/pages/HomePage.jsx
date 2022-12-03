@@ -52,7 +52,8 @@ function HomePage() {
         btnAction={goToAbUs}
       />
       <SubscriptionSection
-        class="my-4 mx-auto flex flex-col justify-center text-center items-center bg-white max-w-4xl gap-2 md:py-[100px] py-[40px] px-8"
+      containerClass="md:py-[140px] py-[80px] px-16 bg-box"
+        class="rounded-[20px] my-4 mx-auto flex flex-col justify-center text-center items-center bg-white max-w-4xl gap-2 md:py-[70px] py-[20px] px-8"
         title="MEET OUR NEW SUBSCRIPTION CARD"
         titleClass="text-blue text-center"
         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quae voluptatum vel voluptate, mollitia provident asperiores quibusdam deserunt! Maxime reiciendis quidem magni voluptas ut, eius quod unde incidunt recusandae nemo."

@@ -44,7 +44,7 @@
     left: 0;
     width: 30%;
     height: 100%;
-    background-color: #08B7B3;
+    background-color: #00D1C6;
     transition: all .3s;
     border-radius: 10rem;
     z-index: -1;
@@ -71,3 +71,25 @@
 .btn1{
     @apply bg-yellow px-5 py-3 rounded-[126px] tracking-wide font-header uppercase text-white self-center hover:text-[#875407] ease-in duration-300;
 }
+
+
+.bg-box {
+    background-image: url(./assets/box.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75%;
+}
+
+
+
+
+
+@media screen and (max-width: 480px) {
+
+    .bg-box {
+        background-image: url(./assets/box-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 85%;
+    }
+  }
