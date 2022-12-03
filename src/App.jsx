@@ -30,7 +30,6 @@ function App() {
           )}
           {isLogin ? <OrderApp /> : <Website />}
           <Footer />
-          <h1>HI MARINA</h1>
         </PageContext.Provider>
       </LoginContext.Provider>
     </>
