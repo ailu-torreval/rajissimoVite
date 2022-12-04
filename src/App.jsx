@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import React, { useState, useContext } from "react";
 import Website from "./Website";
 import OrderApp from "./OrderApp";
@@ -13,7 +13,6 @@ function App() {
   const [isLogin, setIsLogin] = useState(true);
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
- 
   return (
     <>
       <LoginContext.Provider value={{ isLogin, setIsLogin }}>
@@ -37,4 +36,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,25 +1,28 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import ProductCard from '../components/ProductCard'
+import ProdPage from '../pages/ProdPage'
 import { OrderProductsContext } from '../contexts/OrderProductsContext'
 
 function ProductGrid(props) {
 
     const { productsData } = useContext(OrderProductsContext)
+    const [ showProd, setShowProd ] = useState(false);
+    const [ prodId, setProdId ] = useState('');
 
-    const categories = [ "Combos", "Churros & Waffles", "Gelato", "Drinks" ];
     function generateId(i) {
-        return `cat_${i + 1}`
+        return `cat_${i}`
     }
 
     console.log(productsData);
   return (
     <div>
+        {showProd && <ProdPage prodId={prodId} setShowProd={setShowProd} />}
         {props.cat.map((cat, index) => 
-        <div id={generateId(index)}>
+        <div key={index} id={generateId(index)}>
             <h2>{cat} </h2>
             <div className="flex flex-col gap-2" >{productsData.map((prod) => {
                 if(prod.productType === index + 1 ) {
-                    return <ProductCard key={prod.id} {...prod} />
+                    return <ProductCard key={prod.id} prod={prod} prodId={prodId} setProdId={setProdId} setShowProd={setShowProd} />
                 }
             })}</div>
         </div>
