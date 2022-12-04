@@ -2,10 +2,13 @@ import React from 'react'
 import vegan from '../assets/vegan-icon.png';
 import cart from '../assets/cart.png';
 
-function ProductCard(prod) {
+function ProductCard({prod , setProdId, setShowProd}) {
 
     function openProdPage() {
         console.log("open popup");
+        setProdId(prod.id);
+        setShowProd(true);
+
     }
 
   return (
