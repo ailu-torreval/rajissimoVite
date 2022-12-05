@@ -9,8 +9,8 @@ import { LoginContext } from "./contexts/LoginContext";
 import { PageContext } from "./contexts/PageContext";
 
 function App() {
-  const [page, setPage] = useState("menuPage");
-  const [isLogin, setIsLogin] = useState(false);
+  const [page, setPage] = useState("orderPage");
+  const [isLogin, setIsLogin] = useState(true);
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
   return (
