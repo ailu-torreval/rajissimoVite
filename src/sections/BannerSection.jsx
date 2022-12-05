@@ -9,12 +9,32 @@ function BannerSection() {
   return (
     <section className="mx-8 my-2 md:py-[100px] py-[40px] text-blue flex flex-col gap-20">
       <h1 className="text-blue text-center">Best Churros In Town</h1>
-      <div className="flex justify-around gap-8">
-        <img src={caramel} alt="caramel" className="hidden hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[192px] "></img>
-        <img src={white} alt="white" className="hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[192px] "></img>
-        <img src={churros} alt="churros" className="sm:max-w-[160px] md:max-w-[190px] xl:max-w-[321px]"></img>
-        <img src={chocolate} alt="chocolate" className="hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[192px] "></img>
-        <img src={lavander} alt="lavander" className="hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[192px] "></img>
+      <div className="flex justify-around align-start gap-8">
+        <img
+          src={caramel}
+          alt="caramel"
+          className="hidden hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[152px] "
+        ></img>
+        <img
+          src={white}
+          alt="white"
+          className="hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[152px] "
+        ></img>
+        <img
+          src={churros}
+          alt="churros"
+          className="max-w-[150px] xl:max-w-[280px]"
+        ></img>
+        <img
+          src={chocolate}
+          alt="chocolate"
+          className="hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[152px] "
+        ></img>
+        <img
+          src={lavander}
+          alt="lavander"
+          className="hidden sm:block sm:max-w-[70px] md:max-w-[100px] xl:max-w-[152px] "
+        ></img>
       </div>
     </section>
   );
