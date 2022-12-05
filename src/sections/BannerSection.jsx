@@ -4,11 +4,13 @@ import caramel from "../assets/caramel.svg";
 import churros from "../assets/churros.svg";
 import lavander from "../assets/lavander.svg";
 import white from "../assets/white.svg";
+import DecoLines from "../components/DecoLines";
 
-function BannerSection() {
+function BannerSection(props) {
   return (
     <section className="mx-8 my-2 md:py-[100px] py-[40px] text-blue flex flex-col gap-20">
       <h1 className="text-blue text-center">Best Churros In Town</h1>
+        <DecoLines offset={props.offset} />
       <div className="flex justify-around align-start gap-8">
         <img
           src={caramel}

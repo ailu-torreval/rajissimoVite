@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useRef } from "react";
 import HeroSection from "../sections/HeroSection";
 import BannerSection from "../sections/BannerSection";
 import Section from "../sections/Section";
@@ -8,6 +8,7 @@ import img from "../assets/hero.png";
 
 function HomePage() {
   const { page, setPage } = useContext(PageContext);
+  const [ offset, setOffset ] = useState()
 
   function goToMenu() {
     console.log("menu");
@@ -26,8 +27,8 @@ function HomePage() {
 
   return (
     <>
-      <HeroSection />
-      <BannerSection />
+      <HeroSection setOffset={setOffset} />
+      <BannerSection offset={offset} />
       <Section
         img={img}
         class="flex flex-col md:flex-row justify-center md:gap-x-24 mx-8 my-2 md:py-[100px] py-[40px]"

@@ -9,7 +9,7 @@ import { LoginContext } from "./contexts/LoginContext";
 import { PageContext } from "./contexts/PageContext";
 
 function App() {
-  const [page, setPage] = useState("menuPage");
+  const [page, setPage] = useState("homePage");
   const [isLogin, setIsLogin] = useState(false);
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 

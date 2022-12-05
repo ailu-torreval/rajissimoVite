@@ -1,6 +1,8 @@
+import { useRef } from 'react'
 import anime from "animejs/lib/anime.es.js";
 
 function DecoLines() {
+    const inputRef = useRef()
 
   const animation = anime({
     targets: "#line path",
@@ -22,19 +24,29 @@ function DecoLines() {
 
   // Animate on scroll
   const animateOnScroll = function (div, speed = 100, offset = 0) {
-    const scrollPercent = window.pageYOffset - div.offsetTop;
+    const { offsetTop } = inputRef.current;
+    const scrollPercent = window.pageYOffset - offsetTop;
     return (scrollPercent + offset) / speed;
   };
 
   // Scroll listener
   window.onscroll = function () {
-    animation.seek(animateOnScroll(section2, 1000, 200) * animation.duration);
-    animation2.seek(animateOnScroll(section2, 1000, 200) * animation.duration);
+    // const { offsetTop } = inputRef.current;
+    // console.log("OFFSET", offsetTop);
+    console.log("WINDOW", window.pageYOffset);
+    const { offsetTop } = inputRef.current;
+    console.log("ofset", offsetTop);
+    const scrollPercent = window.pageYOffset - offsetTop;
+    console.log(scrollPercent);
+    animation.seek((scrollPercent / 300) * animation.duration)
+    animation2.seek((scrollPercent / 300) * animation.duration)
+    // animation.seek(animateOnScroll(section2, 1000, 200) * animation.duration);
+    // animation2.seek(animateOnScroll(section2, 1000, 200) * animation.duration);
   };
 
 
   return (
-    <div className="App">
+    <div ref={inputRef} className="App">
       <section className="section1"></section>
       <section className="section2">
         <svg id="line2"
@@ -47,7 +59,7 @@ function DecoLines() {
           <path
             d="M-62.6849 245.637C110.212 297.504 608.949 80.1284 858.754 24.3733C1108.56 -31.3818 1541.79 44.864 1541.79 44.864"
             stroke="#FAAF3D"
-            stroke-width="6"
+            strokeWidth="6"
           />
         </svg>
 
@@ -63,7 +75,7 @@ function DecoLines() {
           <path
             d="M1650.87 283.158C1162.08 393.543 883.218 151.301 618.725 60.3703C354.231 -30.5604 -387.944 0.240273 -270.502 58.79"
             stroke="#00B7B4"
-            stroke-width="6"
+            strokeWidth="6"
           />
         </svg>
       </section>
