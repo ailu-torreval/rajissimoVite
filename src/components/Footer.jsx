@@ -38,7 +38,7 @@ function Footer(props) {
   return (
     <footer >
       <img src={wave} alt="wave" className="w-full h-full"></img>
-      <div className="px-8 md:px-16 pt-16 md:pb-4 bg-[#FEE3BB] flex flex-col">
+      <div className="px-4 md:px-16 pt-16 md:pb-4 bg-[#FEE3BB] flex flex-col">
         <div className="flex flex-col justify-between md:flex-row md:mb-8">
           <ul className="mb-4">
             {isLogin ? (
