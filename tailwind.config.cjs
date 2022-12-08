@@ -18,6 +18,7 @@ module.exports = {
         blue: "#104057",
         yellow: "#FCAF3E",
         darkyellow: "#A6680A",
+        lightyellow: "#FEE3BB",
       },
       animation: {
         "spin-slow": "spin 10s linear infinite",
