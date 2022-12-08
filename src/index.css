@@ -89,8 +89,12 @@
     background-size: contain;
     
 }
-
-
+.rectangle{
+    background-image: url(./assets/rectangle-desktop.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: contain;
+}
 
 
 
