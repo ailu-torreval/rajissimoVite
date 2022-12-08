@@ -7,14 +7,16 @@ import Option from "../components/Option";
 
 function ProdPage(props) {
   const { productsData, setProductsData } = useContext(OrderProductsContext);
-  const [counter, setCounter] = useState(1);
-  const [preTotal, setPreTotal] = useState(100);
+  const [completeSel, setCompleteSel] = useState(false)
   const prod = productsData.filter((prod) => prod.id == props.prodId);
   const [orderProdData, setOrderProdData] = useState({
+    prodId: Math.floor(Math.random() * 200) + 1,
     prod: prod[0].name,
-    netPrice: prod[0].price,
+    netPrice: prod[0].isOffer ? prod[0].offerPrice : prod[0].price,
     extraPrice: 0,
-    preferences: [],
+    qty: 1,
+    totalProdAmount: 0,
+    preferences: prod[0].options ?  [] : undefined,
   });
 
   function closePage() {
@@ -65,18 +67,14 @@ function ProdPage(props) {
               )}
             </div>
           </div>
-          {prod[0].options.length > 0 && (
+          {prod[0].options && (
             <div>
               {prod[0].options.map((option, index) => (
-                <Option key={index} {...option} />
+                <Option key={index} id={index} completeSel={completeSel} setCompleteSel={setCompleteSel}  option={option} />
               ))}
             </div>
           )}
-          <Controls
-            counter={counter}
-            setCounter={setCounter}
-            preTotal={preTotal}
-            setPreTotal={setPreTotal}
+          <Controls {...props} optQty={prod[0].options.length} completeSel={completeSel} setCompleteSel={setCompleteSel} 
           />
         </div>
       </div>

@@ -10,14 +10,15 @@ function OrderPage() {
 
   const { page, setPage } = useContext(PageContext);
   const { orderForm, setOrderForm } = useContext(OrderContext);
+  const [ basket, setBasket ] =useState([])
   const [ cat, setCat ] = useState([ "Combos", "Churros & Waffles", "Gelato", "Drinks" ]);
 
   return (
     <>
     <ControlPanel cat={cat}/>
-    <section>
-      <ProductGrid cat={cat} />
-      <Basket />
+    <section className="flex">
+      <ProductGrid basket={basket} class="basis-3/4" setBasket={setBasket} cat={cat} />
+    { basket.length > 0 && <Basket basket={basket} class="basis-1/4"  setBasket={setBasket} />}
     </section>
     </>
   )

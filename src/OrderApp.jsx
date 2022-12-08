@@ -24,7 +24,7 @@ function OrderApp() {
 
   const { page, setPage } = useContext(PageContext)
 
-  const url = "https://deliveryproducts-9391.restdb.io/rest/deli-products";
+  const url = "https://deliveryproducts-9391.restdb.io/rest/deli-Prods";
   const options = {
     headers: {
       "x-apikey": "637d3121c890f30a8fd1f507",
