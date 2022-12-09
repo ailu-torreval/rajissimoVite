@@ -21,6 +21,7 @@ function Option({id, option, completeSel }) {
 
 
   function handleRadio(opt, index) { 
+    //scroll to next selection
     const str = "opt_"+ (id + 1);
     const myElm = document.getElementById(str);
     console.log(str);
@@ -31,45 +32,18 @@ function Option({id, option, completeSel }) {
         inline: "nearest",
       });
     }
-    if(opt.optId) {
-      // const arr = {
-      //   optId: opt.optId,
-      //   option: option.optName,
-      //   selection: opt.name
-      // }
+    // if(opt.optId) {
+    //   console.log("ESTEEEE", orderProdData);
+    //   //primary - create an array, check if theres another one with same option.optName and replace it
+    //   console.log("optId", opt.optId);
+    // } else if(option.isSubOpt) {
 
-      // setOrderProdData((prevState) => {
-      //   if(prevState.preferences.some((sel) => sel.option == option.optName)) {
-      //     const index = prevState.preferences.findIndex((sel) => sel.option == option.optName);
-      //     console.log("is repeated, we should replace", prevState.preferences[index]);
-      //     const elm = prevState.preferences.filter((sel)=> sel.option !== option.optName);
-      //     const elm2 = elm.concat(arr);
-      //     return {...prevState, preferences: [...elm2]}
-      //   } else {
-      //     console.log("is not repeated, just push it",);
-          
-      //     return { ...prevState, preferences: [...prevState.preferences, arr ]}
-      //   }
-      // })
-      // setOrderProdData({...orderProdData, preferences: [...orderProdData.preferences, arr]})
-      console.log("ESTEEEE", orderProdData);
-      //primary - create an array, check if theres another one with same option.optName and replace it
-      console.log("optId", opt.optId);
-    } else if(option.isSubOpt) {
-      // const arr2 = {
-      //   option: option.optName,
-      //   selection: opt.name
-      // }
-      // setOrderProdData((prevState) => {
-      //   const index = prevState.preferences.findIndex((sel) => sel.optId == option.selId);
-      //   return prevState.preferences[index] = {...prevState.preferences[index], select: {...arr2}}
-      // })
-      //suboption - look for the optId and append. check if there is another with option.optName and replace it
-      console.log("is sub opt", option.selId, option)
-      console.log("SUBOPTION", option.optName);
-    } else {
-      console.log("is nothing of that");
-      //push the prod to the array check if we need to replace
+    //   console.log("is sub opt", option.selId, option)
+    //   console.log("SUBOPTION", option.optName);
+    // } else {
+    //   console.log("is nothing of that");
+    //   //push the prod to the array check if we need to replace
+    //make a local array, fill it with the option data, check if its repeated, otherwise push it to the state
       const arr = {
         option: option.optName,
         selection: opt.name
@@ -90,10 +64,10 @@ function Option({id, option, completeSel }) {
       })
       // setOrderProdData({...orderProdData, preferences: [...orderProdData.preferences, arr]})
       console.log("ADD PROD", orderProdData);
-    }
+    // }
 
-    console.log(arr);
     console.log("handleRadio");
+    //show suboptions
         if(opt.subOptions) {
       setShowSubOpt(true)
       setSelectOpt(index);
@@ -112,28 +86,70 @@ function Option({id, option, completeSel }) {
 
 
   function handleCheckBox(e, opt,position) {
-    const min = option.optRequired;
-    const max = option.optMax;
-
-    console.log(e);
-    
-          const updatedCheckedState = checkedState.map((item, index) =>
-          index === position ? !item : item );
-          setCheckedState(updatedCheckedState);
-    
     const countedChecks = checkedState.reduce((allBoxes, check) => {
       const currCount = allBoxes[check] ?? 0;
       return {
         ...allBoxes,
         [check]: currCount + 1,
       };
-    });
+    }, {});
+
+    console.log("COUNTED false CHECKS:", countedChecks.false);
+    console.log("COUNTED all CHECKS:", checkedState.length);
+    const min = option.optRequired;
+    const max = option.optMax;
+
+    if(countedChecks.false == checkedState.length || countedChecks.true < max ) {
+      // first click, or less than max
+      console.log("CHECK");
+      const updatedCheckedState = checkedState.map((item, index) =>
+    index === position ? !item : item );
+   setCheckedState(updatedCheckedState);
+   } else if(countedChecks.true >= max) {
+     console.log("it should'nt add more, but uncheck if asked", max, countedChecks.true);
+     e.target.checked = false;
+     const updatedCheckedState = checkedState.map((item, index) =>
+     index === position && item === true ? !item : item );
+    setCheckedState(updatedCheckedState);
+      //  setCheckedState((prevState) => prevState[position] == true && !prevState[position]);
+       console.log(checkedState);
+
+
+   } 
+
+   const arr = {
+    option: option.optName,
+    selection : []
+   }
+
+  for (let i=0; i<checkedState.length; i++) {
+    checkedState[i] === true ? arr.selection = [...arr.selection, option.selectOpt[i].name]: '' ;
+  }
+
+  console.log("ARRAY", arr);
+
+  setOrderProdData((prevState) => {
+    if(prevState.preferences.some((sel) => sel.option == option.optName)) {
+      const index = prevState.preferences.findIndex((sel) => sel.option == option.optName);
+      console.log("is repeated, we should replace", prevState.preferences[index]);
+      const elm = prevState.preferences.filter((sel)=> sel.option !== option.optName);
+      const elm2 = elm.concat(arr);
+      return {...prevState, preferences: [...elm2]}
+    } else {
+      console.log("is not repeated, just push it",);
+      
+      return { ...prevState, preferences: [...prevState.preferences, arr ]}
+    }
+  })
+
+   
+
+    console.log("FINAL ARRAY", orderProdData);
+    
 
     
-    if(countedChecks.true >= (max)) {
-      console.log("it should'nt add more", max, countedChecks.true);
-      e.target.checked = false;
-    }
+
+    
     
 
 
@@ -144,8 +160,20 @@ function Option({id, option, completeSel }) {
 
   function click() {
     console.log(checkedState);
-  }
 
+    // const countedChecks = checkedState.reduce((allBoxes, check) => {
+    //   const currCount = allBoxes[check] ?? 0;
+    //   return {
+    //     ...allBoxes,
+    //     [check]: currCount + 1,
+    //   };
+    // }, {});
+
+    // console.log("COUNTED false CHECKS:", countedChecks.false);
+    // console.log("CHECKS:", countedChecks);
+    // console.log("COUNTED all CHECKS:", checkedState.length);
+    console.log(checkedState);
+  }
 
   return (
     <>    
