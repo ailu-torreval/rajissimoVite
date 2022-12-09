@@ -6,8 +6,8 @@ function MenuSection(props) {
   return (
     <section className="mx-4 flex flex-col justify-between gap-4 ">
       <h2 className="uppercase">{props.data.prodName}</h2>
-      <div className="relative text-center md:mx-8 md:p-8 lg:mx-48">
-        <p className="border border-2 rounded-[20px] border-lightyellow p-4 bg-white z-10">
+      <div className="relative m-auto text-center md:p-12">
+        <p className="max-w-[354px] border border-2 rounded-[20px] border-lightyellow mx-2 p-2 md:p-10 bg-white z-10 asymbox md:max-w-[700px] lg:max-w-[850px]">
           {props.data.desc}
         </p>
       </div>
