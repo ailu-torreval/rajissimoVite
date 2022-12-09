@@ -91,10 +91,7 @@ function Option({id, option, completeSel }) {
       // setOrderProdData({...orderProdData, preferences: [...orderProdData.preferences, arr]})
       console.log("ADD PROD", orderProdData);
     }
-    const arr = {
-      option: option.optName,
-      selection: opt.name
-    }
+
     console.log(arr);
     console.log("handleRadio");
         if(opt.subOptions) {
@@ -119,18 +116,6 @@ function Option({id, option, completeSel }) {
     const max = option.optMax;
 
     console.log(e);
-
-
-
-    // if (checkedState.filter((i) => i).length >= max && e.target.checked) return;
-    // const updatedCheckedState = checkedState.map((item, index) =>
-    //     index === position ? !item : item
-    // );
-
-
-
-  
-
     
     const countedChecks = checkedState.reduce((allBoxes, check) => {
       const currCount = allBoxes[check] ?? 0;
@@ -141,7 +126,7 @@ function Option({id, option, completeSel }) {
     });
 
     
-    if(countedChecks.true > max) {
+    if(countedChecks.true > (max - 1)) {
       console.log("it should'nt add more", max, countedChecks.true);
       e.target.checked = false;
     }
@@ -154,11 +139,6 @@ function Option({id, option, completeSel }) {
 
 
   console.log(checkedState);
-  }
-
-  function checkMax() {
-
-
   }
 
 
@@ -178,7 +158,7 @@ function Option({id, option, completeSel }) {
             {/* { option.optImg && <img src={option.optImg} alt="product illustation" />} */}
             <img src={dummyImg} alt="product illustation" />
             <div className="flex flex-col">
-                {option.selectOpt && option.selectOpt.map((opt, index) => option.isRadio ? <OptionInput key={index} optId={index} action={() => handleRadio(opt, index)} radio="true" name={option.optName} opt={opt} /> : <OptionInput key={index} index={index} checked={checkedState[index]} disabled={checkMax()} action={(e) => handleCheckBox(e,opt,index)} radio="false" opt={opt} /> )}
+                {option.selectOpt && option.selectOpt.map((opt, index) => option.isRadio ? <OptionInput key={index} optId={index} action={() => handleRadio(opt, index)} radio="true" name={option.optName} opt={opt} /> : <OptionInput key={index} index={index} checked={checkedState[index]} action={(e) => handleCheckBox(e,opt,index)} radio="false" opt={opt} /> )}
             </div>
 
         </div>
