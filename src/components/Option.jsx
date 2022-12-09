@@ -117,6 +117,10 @@ function Option({id, option, completeSel }) {
 
     console.log(e);
     
+          const updatedCheckedState = checkedState.map((item, index) =>
+          index === position ? !item : item );
+          setCheckedState(updatedCheckedState);
+    
     const countedChecks = checkedState.reduce((allBoxes, check) => {
       const currCount = allBoxes[check] ?? 0;
       return {
@@ -126,15 +130,11 @@ function Option({id, option, completeSel }) {
     });
 
     
-    if(countedChecks.true > (max - 1)) {
+    if(countedChecks.true >= (max)) {
       console.log("it should'nt add more", max, countedChecks.true);
       e.target.checked = false;
     }
     
-
-      const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item );
-      setCheckedState(updatedCheckedState);
 
 
 
