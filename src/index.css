@@ -108,3 +108,41 @@
         background-size: contain;
     }
   }
+  .asymbox{
+    background-color: white;
+  }
+  .asymbox::before {
+    max-width: fit-content;
+    height: 98%;
+    content: "Lorem Ipsum is simply dummy text of the printing.";
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
+    right:0px;
+    width: max-content;
+    background-color: #FEE3BB;
+    color:transparent;
+    transform: rotate(-4deg);
+    z-index: -10;
+    border-radius: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    .asymbox::before {
+        max-width: fit-content;
+        height: 58%;
+        content: "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.";
+        position: absolute;
+        bottom: 10px;
+        left: 0px;
+        right:0px;
+        width: max-content;
+        background-color: #FEE3BB;
+        color:transparent;
+        transform: rotate(-4deg);
+        z-index: -10;
+        border-radius: 24px;
+        margin: 2rem;
+        margin-right:4rem;
+      }
+    
+  }
