@@ -183,8 +183,7 @@ function Option({id, option, completeSel }) {
         { option.optSubDesc && <p>{option.optSubDesc}</p>}
         <div className="flex">
           <button onClick={click}>click</button>
-            {/* { option.optImg && <img src={option.optImg} alt="product illustation" />} */}
-            <img src={dummyImg} alt="product illustation" />
+          { option.illustration && <img src={dummyImg} alt="product illustation" />}
             <div className="flex flex-col">
                 {option.selectOpt && option.selectOpt.map((opt, index) => option.isRadio ? <OptionInput key={index} optId={index} action={() => handleRadio(opt, index)} radio="true" name={option.optName} opt={opt} /> : <OptionInput key={index} index={index} checked={checkedState[index]} action={(e) => handleCheckBox(e,opt,index)} radio="false" opt={opt} /> )}
             </div>
