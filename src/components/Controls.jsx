@@ -12,32 +12,34 @@ function Controls(props) {
   function incrementQty() {
     setCounter((old) => old + 1);
   }
-  
-  
   function decreaseQty() {
     counter > 1 && setCounter((old) => old - 1);
-
   }
 
   function calcPrice() {
   return ( orderProdData.netPrice + orderProdData.extraPrice ) * counter;
-
   }
 
   function addToOrder() {
+
+    console.log("why is not working", orderProdData)
+    props.setCompleteSel(false)
+
+    //check if it has preferences required
     if(orderProdData.preferences == undefined) {
       //product has no options, just send it to basket
-      setOrderProdData({...orderProdData, qty: counter})
+      props.setShowProd(false);
+      setOrderProdData({...orderProdData, qty: counter, totalAmount: ( orderProdData.netPrice + orderProdData.extraPrice ) * counter})
       console.log("NO OPTIONS", orderProdData);
       props.setBasket((old)=> old.concat(orderProdData))
-      props.setShowProd(false);
     } else if(orderProdData.preferences.length == props.optQty) {
       //prod has options and are all chosen already
-      setOrderProdData({...orderProdData, qty: counter})
+      props.setShowProd(false);
+      setOrderProdData({...orderProdData, qty: counter, totalAmount: ( orderProdData.netPrice + orderProdData.extraPrice ) * counter})
       console.log("all the options are selected", orderProdData);
       props.setBasket((old)=> old.concat(orderProdData))
-      props.setShowProd(false);
     } else {
+      console.log("ELSE");
       //you need to complete your selection
       const elm = document.getElementById("opt_0");
       elm.scrollIntoView({
@@ -53,6 +55,10 @@ function Controls(props) {
     // props.setShowProd(false);
   }
 
+  function click() {
+    console.log(orderProdData);
+  }
+
 
   return (
     <div className="flex justify-between">
@@ -61,6 +67,7 @@ function Controls(props) {
         <p className="self-center">{counter}</p>
         <button onClick={incrementQty}>+</button>
       </div>
+      <button onClick={click} >click</button>
       <Btn content="Add to Order" class="bg-lightyellow text-blue p-3 rounded-md font-bold flex justify-between gap-4 w-2/4" span={calcPrice()} spanClass="font-normal" action={addToOrder} />
 
     </div>

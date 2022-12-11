@@ -14,6 +14,7 @@ function OptionInput(props) {
         <span className="ml-2 capitalize">
         {props.opt.name} {props.opt.dietOpt == "v" && <span className="text-xl"> 🍃 </span> }
         </span>
+       { props.opt.price > 0 && <span> + {props.opt.price} kr.</span>}
         {showCounter && <Counter counter={counter} setCounter={setCounter} />}
     </label>
     </>

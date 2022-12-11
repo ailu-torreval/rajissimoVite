@@ -10,7 +10,9 @@ function ProdPage(props) {
   const [completeSel, setCompleteSel] = useState(false)
   const prod = productsData.filter((prod) => prod.id == props.prodId);
   const [orderProdData, setOrderProdData] = useState({
-    prodId: Math.floor(Math.random() * 200) + 1,
+    id: Math.floor(Math.random() * 200) + 1,
+    prodId: prod[0].id,
+    imgSrc: prod[0].imgSrc,
     prod: prod[0].name,
     netPrice: prod[0].isOffer ? prod[0].offerPrice : prod[0].price,
     extraPrice: 0,
