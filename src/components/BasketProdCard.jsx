@@ -1,13 +1,20 @@
 import React from 'react'
 
-function BasketProdCard(prod) {
+function BasketProdCard(props) {
+
+
   return (
+    <>
     <div>
-      <h4> <span className="text-darkyellow font-body" >{prod.qty}x</span> {prod.prod} </h4>
+      <p className="font-header capitalize"> <span className="text-darkyellow font-body" >{props.prod.qty}x</span> {props.prod.prod} </p>
       <div>
-        {prod.preferences.map((pref, index) =>  pref.selection.length > 1 ? <div>it has more than one <p>{pref.option}: {pref.selection}</p> </div> : <p>{pref.option}: {pref.selection}</p> )}
+        {props.prod.preferences.map((pref, index) =>  Array.isArray(pref.selection) ? <p key={index}>  <span className="text-darkyellow"> {pref.option}:  </span>{pref.selection.map((sel, index)=> index < pref.selection.length -1 ? <span key={index}>{sel}, </span> : <span key={index}>{sel}. </span>)}</p> : <p key={index}> <span className="text-darkyellow">{pref.option}:  </span>  {pref.selection} </p> )}
       </div>
+        <button onClick={props.action}>Remove</button>
+          <p>{props.prod.totalProdAmount} kr. </p>
     </div>
+    {props.checkout &&  <img src={props.prod.imgSrc} alt="" /> }   
+    </>
   )
 }
 

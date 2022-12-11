@@ -3,13 +3,15 @@ import GameBanner from "./components/GameBanner";
 import OrderPage from "./pages/OrderPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
 import LandingPage from "./pages/LandingPage";
-import { OrderContext } from "./contexts/OrderContext";
+import { BasketContext } from "./contexts/BasketContext";
 import {OrderProductsContext } from "./contexts/OrderProductsContext";
+import { OrderContext } from "./contexts/OrderContext";
 import { PageContext } from "./contexts/PageContext";
 
 function OrderApp() {
 
   const [productsData, setProductsData] = useState([]);
+  const [ basket, setBasket ] = useState([]);
   const [orderForm, setOrderForm] = useState({
     firstName: "",
     lastName: "",
@@ -19,7 +21,9 @@ function OrderApp() {
     city: "",
     order: {},
     isOrder: false,
-    isDelivery: undefined
+    isDelivery: undefined,
+    deliveryFee: 45,
+    message: ""
   });
 
   const { page, setPage } = useContext(PageContext)
@@ -43,12 +47,14 @@ function OrderApp() {
     <main>
       <OrderProductsContext.Provider value={{ productsData, setProductsData }}>
       <OrderContext.Provider value={{ orderForm, setOrderForm }}>
+      <BasketContext.Provider value={{ basket, setBasket}}>
         { page === 'landingPage' && <GameBanner /> }
         { page === 'orderPage' && <GameBanner /> }
         { page === 'landingPage' && <LandingPage /> }
         { page === 'orderPage' && <OrderPage /> }
         { page === 'placeOrderPage' && <PlaceOrderPage /> }
-      </OrderContext.Provider>
+      </BasketContext.Provider>
+      </ OrderContext.Provider>
       </ OrderProductsContext.Provider>
     </main>
   );
