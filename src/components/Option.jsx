@@ -2,11 +2,8 @@ import React, { useState, useContext } from "react";
 import dummyImg from "../assets/ex-waffle.svg";
 import { OrderProdDataContext } from "../contexts/OrderProdDataContext";
 import OptionInput from "./OptionInput";
-import SubOpt from "./SubOpt";
 
 function Option({ id, option, completeSel }) {
-  const [selectedOpt, setSelectOpt] = useState();
-  const [showSubOpt, setShowSubOpt] = useState(false);
   const [checkedState, setCheckedState] = useState(
     new Array(option.selectOpt.length).fill(false)
   );
@@ -175,15 +172,10 @@ function Option({ id, option, completeSel }) {
       }
     });
     console.log("FINAL ARRAY", orderProdData);
-    console.log(checkedState);
   }
 
-  function click() {
-    console.log(orderProdData);
-  }
 
   return (
-    <>
       <div id={generateId()}>
         <h4>{option.optName}</h4>{" "}
         {completeSel && (
@@ -194,7 +186,6 @@ function Option({ id, option, completeSel }) {
         {option.optDesc && <p>{option.optDesc}</p>}
         {option.optSubDesc && <p>{option.optSubDesc}</p>}
         <div className="flex">
-          <button onClick={click}>click</button>
           {option.illustration && (
             <img src={dummyImg} alt="product illustration" />
           )}
@@ -224,13 +215,6 @@ function Option({ id, option, completeSel }) {
           </div>
         </div>
       </div>
-      {showSubOpt == true && (
-        <SubOpt
-          option={option.selectOpt[selectedOpt]}
-          class="bg-lightyellow p-2"
-        />
-      )}
-    </>
   );
 }
 
