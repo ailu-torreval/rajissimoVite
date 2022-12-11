@@ -18,6 +18,7 @@ function ProdPage(props) {
     extraPrice: 0,
     qty: 1,
     totalProdAmount: 0,
+    recomended: false,
     preferences: prod[0].options ?  [] : undefined,
   });
 
