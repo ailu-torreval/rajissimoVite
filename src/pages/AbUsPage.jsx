@@ -4,10 +4,39 @@ import img from "../assets/nyhavn.png";
 import img2 from "../assets/nyhavn-christmas.png";
 import img3 from "../assets/all-products.png";
 import Quote from "../components/Quote";
+import LocationsSection from "../sections/LocationsSection";
 
 function AbUsPage() {
   return (
     <div>
+      <svg
+        width="1440"
+        height="792"
+        viewBox="0 0 1440 792"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full absolute -z-10"
+      >
+        <path
+          d="M1615.74 789.727C1251.41 445.685 888.03 512.026 614.115 455.495C340.2 398.963 -282.704 -5.71379 -151.818 3.7499"
+          stroke="#00B7B4"
+          strokeWidth="6"
+        />
+      </svg>
+      <svg
+        width="1440"
+        height="979"
+        viewBox="0 0 1440 979"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full absolute -z-10 top-4 md:top-36"
+      >
+        <path
+          d="M1532.03 976.459C1406.09 796.743 758.333 651.87 475.066 525.237C191.799 398.603 -165.415 2.96127 -165.415 2.96127"
+          stroke="#FAAF3D"
+          strokeWidth="6"
+        />
+      </svg>
       <h2 className="uppercase underline text-center pt-[40px] md:pt-[100px]">
         How it all started
       </h2>
@@ -35,7 +64,35 @@ function AbUsPage() {
         class="text-header text-blue text-2xl md:text-3xl max-w-6xl text-center m-auto font-bold px-8 py-[40px]"
         text="“I have travelled the world for the last 15 years learning from the best gelato, churros and dessert manufacturers and vendors and hired experts from all over the world.” - Nader Rajja, CEO."
       />
-      <section className="mx-4 flex flex-col justify-between md:py-[100px] py-[40px]">
+      <svg
+        width="1440"
+        height="792"
+        viewBox="0 0 1440 792"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full absolute -z-10 "
+      >
+        <path
+          d="M1615.74 789.727C1251.41 445.685 888.03 512.026 614.115 455.495C340.2 398.963 -282.704 -5.71379 -151.818 3.7499"
+          stroke="#00B7B4"
+          strokeWidth="6"
+        />
+      </svg>
+      <svg
+        width="1440"
+        height="979"
+        viewBox="0 0 1440 979"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full absolute -z-10"
+      >
+        <path
+          d="M1532.03 976.459C1406.09 796.743 758.333 651.87 475.066 525.237C191.799 398.603 -165.415 2.96127 -165.415 2.96127"
+          stroke="#FAAF3D"
+          strokeWidth="6"
+        />
+      </svg>
+      <section className="mx-4 flex flex-col justify-between md:pt-[100px] pt-[40px]">
         <h3 className="uppercase md:ml-24 xl:ml-48">The Churros bites</h3>
         <div className="relative m-auto text-center md:p-12">
           <p className="max-w-[354px] border border-2 rounded-[20px] border-lightyellow mx-2 p-2 md:p-10 bg-white z-10 asymbox md:max-w-[700px] lg:max-w-[850px]">
@@ -57,6 +114,11 @@ function AbUsPage() {
         content="Our gelatos are always fresh, produced same day in our fabbrica di gelato. We have a six-hour policy on our churros dough to ensure it is nice and fresh. Daily oil change ensures our churros are crunchy on the outside and mushy n’ tender inside and have the perfect golden trademark colour that only Rajissimo churros have.
         "
         contentClass="text-blue max-w-[618px]"
+      />
+      <LocationsSection
+        class="flex flex-col items-center mx-8 my-2 gap-8 md:py-[100px] py-[40px] md:gap-12 lg:px-12"
+        title="Visit Rajissimo"
+        titleClass="underline uppercase"
       />
     </div>
   );

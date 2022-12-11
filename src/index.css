@@ -13,10 +13,13 @@
         @apply text-3xl lg:text-6xl font-header mb-3 text-blue;
     }
     h3{
-        @apply text-2xl lg:text-5xl font-header mb-3 text-blue capitalize;
+        @apply text-2xl lg:text-5xl font-header mb-2 text-blue capitalize;
     }
     h4{
-        @apply text-xl lg:text-3xl font-header mb-3 text-blue capitalize;
+        @apply text-xl lg:text-3xl font-header mb-0.5 text-blue uppercase;
+    }
+    h5{
+        @apply text-lg lg:text-2xl font-header mb-0.5 text-blue capitalize;
     }
     p{
         @apply text-sm lg:text-base font-body;
