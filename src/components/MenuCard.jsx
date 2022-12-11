@@ -17,11 +17,11 @@ function MenuCard(props) {
         {props.prod.title}
       </h3>
       <div className="flex flex-col md:flex md:flex-row md:gap-4 lg:gap-12 lg:px-12">
-        <div className="md:basis-1/3 relative md:border md:border-2 md:border-[#fee3bb] md:pt-[10px] md:pl-[10px] md:rounded-[24px] corner-yellow max-w-[350px] m-auto md:m-0">
+        <div className="md:basis-1/3 relative md:border md:border-2 md:border-[#fee3bb] md:pt-[10px] md:pl-[10px] md:rounded-[24px] max-w-[350px] m-auto md:m-0">
           <img
             src={props.foto}
             alt=""
-            className=" rounded-[20px] md:px-0 mb-4 md:m-0 md:block md:h-full md:w-auto md:object-cover md:absolute"
+            className="rounded-[20px] md:px-0 mb-4 md:m-0 md:block md:h-full md:w-auto md:object-cover md:absolute"
           ></img>
           <div className="md:border md:boder-2 md:border-[#08b7b3] md:rounded-[24px] md:h-full md:w-full md:absolute md:top-[20px] md:-right-[20px] md:-z-10"></div>
         </div>
