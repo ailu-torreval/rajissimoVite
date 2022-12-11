@@ -55,6 +55,10 @@ function Controls(props) {
     // props.setShowProd(false);
   }
 
+  function click() {
+    console.log(orderProdData);
+  }
+
 
   return (
     <div className="flex justify-between">
@@ -63,6 +67,7 @@ function Controls(props) {
         <p className="self-center">{counter}</p>
         <button onClick={incrementQty}>+</button>
       </div>
+      <button onClick={click} >click</button>
       <Btn content="Add to Order" class="bg-lightyellow text-blue p-3 rounded-md font-bold flex justify-between gap-4 w-2/4" span={calcPrice()} spanClass="font-normal" action={addToOrder} />
 
     </div>

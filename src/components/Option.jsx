@@ -149,6 +149,8 @@ function Option({ id, option, completeSel }) {
         : "";
     }
 
+    console.log("LOCAL ARRAY", arr)
+
     //push to order state
     setOrderProdData((prevState) => {
       if (prevState.preferences.some((sel) => sel.option == option.optName)) {
@@ -164,6 +166,7 @@ function Option({ id, option, completeSel }) {
           (sel) => sel.option !== option.optName
         );
         const elm2 = elm.concat(arr);
+        console.log("ELM2" , elm2);
         return { ...prevState, preferences: [...elm2] };
       } else {
         //if not, just  push it
