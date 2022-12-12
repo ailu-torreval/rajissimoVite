@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { OrderContext } from "../contexts/OrderContext";
+import Summary from "../components/Summary";
+import Btn from "../components/Btn";
 
 function CheckoutPage(props) {
   const { orderForm, setOrderForm } = useContext(OrderContext);
@@ -16,7 +18,8 @@ function CheckoutPage(props) {
     props.setStep("your-order");
   }
 
-  function submit() {
+  function submit(ev) {
+    ev.preventDefault();
     if (
       nameChecked === true &&
       lastNameChecked === true &&
@@ -26,8 +29,12 @@ function CheckoutPage(props) {
       cardNameChecked === true &&
       cvcChecked === true
     ) {
-      console.log("complete form");
+      // const total = orderForm.isDelivery ? subTotal + orderForm.deliveryFee : subTotal + orderForm.serviceFee;
+      // setOrderForm({...orderForm, subTotal: subTotal, totalAmount: total})
+      //the form is valid, proceed
+      props.setStep('submit-order');
     } else {
+      //form invalid, show alerts
       setIsValid(true);
     }
   }
@@ -39,13 +46,13 @@ function CheckoutPage(props) {
       {orderForm.isDelivery == true && (
         <section>
           <h4>Delivery Details</h4>
-          <p className="font-semibold">Deliver to:</p>
+          <p className="font-semibold">Deliver to: </p>
           <p className="capitalize">
             {orderForm.address1}, {orderForm.zip}, {orderForm.city}.
           </p>
           <p>
-            <span className="font-semibold">Deliver time:</span>
-            30 minutes
+            <span className="font-semibold">Deliver time: </span>
+             30 minutes
           </p>
         </section>
       )}
@@ -209,7 +216,7 @@ function CheckoutPage(props) {
           <div>
             <label>
               <p>Expiration Date</p>
-              <select name="month" value='jan'>
+              <select name="month" value='jan' onChange={()=>{}}>
                 <option value="jan">January</option>
                 <option value="feb">February</option>
                 <option value="march">March</option>
@@ -221,9 +228,9 @@ function CheckoutPage(props) {
                 <option value="sept">September</option>
                 <option value="oct">October</option>
                 <option value="nov">November</option>
-                <option value="dic">December</option>
+                <option value="dec">December</option>
               </select>
-              <select name="year" value='2022'>
+              <select name="year" value='2022' onChange={()=>{}} >
                 <option value="2022" >2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -258,9 +265,10 @@ function CheckoutPage(props) {
               )}
             </label>
           </div>
+      <Summary class="" />
+      <Btn class="btn2" content="Place Order ➔" action={(ev) => submit(ev)} />
         </form>
       </section>
-      <button onClick={submit}>submit</button>
     </section>
   );
 }

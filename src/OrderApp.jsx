@@ -23,7 +23,10 @@ function OrderApp() {
     order: {},
     isOrder: false,
     isDelivery: undefined,
+    subTotal: 0,
     deliveryFee: 45,
+    serviceFee: 10,
+    totalAmount: 0,
     message: ""
   });
 
