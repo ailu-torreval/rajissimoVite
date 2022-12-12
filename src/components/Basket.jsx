@@ -24,6 +24,7 @@ function Basket(props) {
 
   function goToCheckout() {
     setPage('placeOrderPage');
+    window.location = '#'; 
     console.log("orderpage");
   }
 

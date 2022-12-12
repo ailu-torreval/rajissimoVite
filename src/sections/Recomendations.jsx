@@ -34,7 +34,7 @@ function Recomendations() {
       <button key={prod.id} onClick={()=> handleCheckbox(prod)} >
         <img src={prod.imgSrc} alt={prod.name} width='300'/>
         <div>
-          <p>{prod.name}</p>
+          <p className="capitalize">{prod.name}</p>
           <p>{prod.price} kr.</p>
         </div>
       </button>

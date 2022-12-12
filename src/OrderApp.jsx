@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import GameBanner from "./components/GameBanner";
 import OrderPage from "./pages/OrderPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
 import LandingPage from "./pages/LandingPage";
@@ -19,11 +18,14 @@ function OrderApp() {
     phoneNr: undefined,
     mail: undefined,
     zip: "",
-    city: "",
+    city: "Copenhagen",
     order: {},
     isOrder: false,
     isDelivery: undefined,
+    subTotal: 0,
     deliveryFee: 45,
+    serviceFee: 10,
+    totalAmount: 0,
     message: ""
   });
 
@@ -49,8 +51,6 @@ function OrderApp() {
       <OrderProductsContext.Provider value={{ productsData, setProductsData }}>
       <OrderContext.Provider value={{ orderForm, setOrderForm }}>
       <BasketContext.Provider value={{ basket, setBasket}}>
-        { page === 'landingPage' && <GameBanner /> }
-        { page === 'orderPage' && <GameBanner /> }
         { page === 'landingPage' && <LandingPage /> }
         { page === 'orderPage' && <OrderPage /> }
         { page === 'placeOrderPage' && <PlaceOrderPage /> }

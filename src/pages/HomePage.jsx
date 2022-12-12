@@ -12,16 +12,22 @@ function HomePage() {
   function goToMenu() {
     console.log("menu");
     setPage("menuPage");
+    window.location = '#';
+
   }
 
   function goToAbUs() {
     console.log("menu");
     setPage("abUsPage");
+    window.location = '#';
+
   }
 
   function goToSubsPage() {
     console.log("subs");
     setPage("subsPage");
+    window.location = '#';
+
   }
 
   return (

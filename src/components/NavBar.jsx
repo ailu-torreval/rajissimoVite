@@ -12,18 +12,21 @@ function NavBar(props) {
   function goToHome() {
     isLogin === true && setIsLogin(false);
     setPage("homePage");
+    window.location = '#';
     console.log(page);
   }
 
   function goToMenuPage() {
     isLogin === true && setIsLogin(false);
     setPage("menuPage");
+    window.location = '#';
     console.log(page);
   }
 
   function goToAboutUs() {
     isLogin === true && setIsLogin(false);
     setPage("abUsPage");
+    window.location = '#';
     console.log(page);
   }
 
@@ -36,7 +39,8 @@ function NavBar(props) {
 
   function goToOrderApp() {
     setIsLogin(true);
-    setPage("landingPage");
+    setPage('landingPage')
+    window.location = '#';
   }
 
   return (

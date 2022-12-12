@@ -2,7 +2,7 @@ import React from "react";
 
 function Input(props) {
   return (
-    <div >
+    <div>
       <label className="flex flex-col font-body text-blue">
         {props.content}
         <input
@@ -10,7 +10,7 @@ function Input(props) {
           type="text"
           onKeyDown={props.action}
           name={props.content}
-          className="border border-2 border-blue rounded-[14px] p-2 text-xs"
+          className="field"
         ></input>
         {props.isValid && (
           <span>{!props.state && <span> {props.alert}</span>}</span>

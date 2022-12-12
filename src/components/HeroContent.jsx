@@ -7,10 +7,12 @@ function HeroContent() {
   const { isLogin, setIsLogin } = useContext(LoginContext);
   const { page, setPage } = useContext(PageContext);
 
-  function goToOrderApp() {
-    setIsLogin(true);
-    setPage("landingPage");
-  }
+    function goToOrderApp() {
+      setIsLogin(true);
+      setPage('landingPage');
+      window.location = '#';
+
+    }
 
   return (
     <div className="flex flex-col mx-2 justify-center text-center items-center gap-4 basis-1/2">

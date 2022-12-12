@@ -9,6 +9,8 @@ function Logo() {
   function goToHomepage() {
     isLogin === true && setIsLogin(false);
     setPage("homePage");
+    window.location = '#';
+
   }
 
   return <div onClick={goToHomepage}><img src={img} alt="logo" className="max-w-[76px]"></img></div>;

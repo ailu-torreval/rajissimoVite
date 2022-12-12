@@ -5,6 +5,7 @@ import { OrderContext } from '../contexts/OrderContext'
 import BasketProdCard from '../components/BasketProdCard'
 import Recomendations from '../sections/Recomendations'
 import Btn from '../components/Btn'
+import Summary from '../components/Summary'
 
 function YourOrder(props) {
 
@@ -12,11 +13,6 @@ function YourOrder(props) {
     const {orderForm, setOrderForm} = useContext(OrderContext)
     const { page, setPage } = useContext(PageContext)
 
-  
-    const subTotal = basket.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
-        0,
-      );
 
     function removeProd(id) {
         setBasket((prevState)=> prevState.filter((prod) => prod.id !== id))
@@ -24,7 +20,9 @@ function YourOrder(props) {
       }
     
       function backToMenu() {
-        setPage('orderPage')
+        setPage('orderPage');
+        window.location = '#';
+
       }
     
     function addMsg(ev) {
@@ -33,8 +31,13 @@ function YourOrder(props) {
     }
 
     function goToCheckout() {
-      console.log("go to checkout");
-      props.setStep('checkout');
+      if(basket.length < 1) {
+        window.location = "#";
+      } else {
+        console.log("go to checkout", orderForm);
+        props.setStep('checkout');
+        window.location = "#";
+      }
     }
 
 
@@ -55,12 +58,7 @@ function YourOrder(props) {
   <input onKeyDown={(ev)=> addMsg(ev)}        type="text"
         placeholder="Your message here..." />
   </div>
-  <div>
-    <h3>Summary</h3>
-    <p>Subtotal: <span>{subTotal} kr.</span></p>
-    <p>Delivery Fee: <span>{orderForm.deliveryFee} kr.</span></p>
-    <p>Total: <span>{subTotal + orderForm.deliveryFee} kr.</span></p>
-  </div>
+  <Summary class=""/>
   <div className="flex flex-center">
   <Btn class="btn2" action={goToCheckout} content="Checkout ➔" />
   </div>
