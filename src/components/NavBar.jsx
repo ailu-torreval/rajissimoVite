@@ -46,6 +46,8 @@ function NavBar(props) {
   return (
     <nav className="flex text-lg justify-between items-center font-body text-darkyellow my-[20px] mx-[20px] sm:mx-[40px] lg:mx-[100px]">
       <Logo />
+      { !isLogin &&
+      <>
       <BtnGrid
         class="flex gap-x-6 justify-between"
         btn1action={goToHome}
@@ -61,13 +63,13 @@ function NavBar(props) {
         btn4action={openBurger}
         btn4class="md:hidden"
       />
-      {!isLogin && (
-        <Btn
-          class="btn1 hidden md:block"
-          content="Order Online ➔"
-          action={goToOrderApp}
-        />
-      )}
+      <Btn
+        class="btn1 hidden md:block"
+        content="Order Online ➔"
+        action={goToOrderApp}
+      />
+
+      </> }
     </nav>
   );
 }

@@ -3,7 +3,7 @@ import Btn from "./Btn";
 
 function ControlPanel(props) {
   return (
-    <div className="flex flex-col justify-around md: flex-row">
+    <div className="md:sticky shadow top-0 flex-col py-4 bg-white w-full flex md:justify-center gap-6">
       {props.cat.map((cat, index) => (
         <Btn
           key={index}
@@ -13,7 +13,7 @@ function ControlPanel(props) {
             const elm = document.getElementById("cat_" + index);
             elm.scrollIntoView({
               behavior: "smooth",
-              block: "start",
+              block: "nearest",
               inline: "nearest",
             });
           }}

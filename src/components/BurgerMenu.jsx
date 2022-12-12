@@ -1,13 +1,15 @@
-import { useContext } from "react";
-import BtnGrid from "./BtnGrid";
-import Btn from "./Btn";
-import SearchComponent from "./SearchComponent";
+import { useContext, useState } from "react";
 import { LoginContext } from "../contexts/LoginContext";
 import { PageContext } from "../contexts/PageContext";
+import BtnGrid from "./BtnGrid";
+import Btn from "./Btn";
+import ControlPanel from "./ControlPanel";
 
 function BurgerMenu(props) {
   const { isLogin, setIsLogin } = useContext(LoginContext);
   const { page, setPage } = useContext(PageContext);
+  const [ cat, setCat ] = useState([ "Combos", "Churros & Waffles", "Gelato", "Drinks" ]);
+
 
   
   function goToHome() {
@@ -44,7 +46,7 @@ function BurgerMenu(props) {
   return (
     <div className="flex flex-col h-screen w-full gap-y-6 font-body mt-36 md:hidden text-darkyellow text-lg">
       {isLogin ? (
-        <SearchComponent />
+        <ControlPanel showBurger={props.showBurgerMenu} setShowBurger={props.setShowBurgerMenu} cat={cat} />
       ) : (
         <>
           <BtnGrid

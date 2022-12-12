@@ -8,6 +8,7 @@ function ProductCard({prod , setProdId, setShowProd}) {
         console.log("open popup");
         setProdId(prod.id);
         setShowProd(true);
+        window.location = '#';
 
     }
 
