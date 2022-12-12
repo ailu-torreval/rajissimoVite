@@ -25,31 +25,6 @@ function CheckoutPage(props) {
     props.setStep("your-order");
   }
 
-  function submit(ev) {
-    ev.preventDefault();
-    if (
-      nameChecked === true &&
-      lastNameChecked === true &&
-      phoneChecked === true &&
-      mailChecked === true &&
-      cardChecked === true &&
-      cardNameChecked === true &&
-      cvcChecked === true
-    ) {
-      const subTotal = basket.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
-        0
-      );
-      const total = orderForm.isDelivery ? subTotal + orderForm.deliveryFee : subTotal + orderForm.serviceFee;
-      // setOrderForm({...orderForm, subTotal: subTotal, totalAmount: total})
-      //the form is valid, proceed
-      console.log(subTotal, total);
-      // props.setStep('submit-order');
-    } else {
-      //form invalid, show alerts
-      setIsValid(true);
-    }
-  }
 
   function changeDelivery() {
     orderForm.isDelivery === true ? setOrderForm({...orderForm, isDelivery: false}) : setOrderForm({...orderForm, isDelivery: true});
@@ -85,6 +60,32 @@ function CheckoutPage(props) {
     } else {
       setAddValid(true)
       console.log("unvalid");
+    }
+  }
+
+  function submit(ev) {
+    ev.preventDefault();
+    if (
+      nameChecked === true &&
+      lastNameChecked === true &&
+      phoneChecked === true &&
+      mailChecked === true &&
+      cardChecked === true &&
+      cardNameChecked === true &&
+      cvcChecked === true
+    ) {
+      //the form is valid, proceed
+      const subTotal = basket.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
+        0
+      );
+      const total = orderForm.isDelivery ? subTotal + orderForm.deliveryFee : subTotal + orderForm.serviceFee;
+      setOrderForm({...orderForm, subTotal: subTotal, totalAmount: total, order: {...basket}})
+      console.log(orderForm);
+      props.setStep('submit-order');
+    } else {
+      //form invalid, show alerts
+      setIsValid(true);
     }
   }
 
