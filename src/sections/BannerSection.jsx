@@ -7,9 +7,9 @@ import white from "../assets/white.svg";
 
 function BannerSection() {
   return (
-    <section className="mx-8 my-2 md:py-[100px] py-[40px] text-blue flex flex-col gap-20">
+    <section className="lg:m-[100px] sm:m-[40px] m-[20px] text-blue flex flex-col gap-20">
       <h1 className="text-blue text-center">Best Churros In Town</h1>
-      <div className="flex justify-around align-start gap-8">
+      <div className="flex justify-around align-start gap-4">
         <img
           src={caramel}
           alt="caramel"

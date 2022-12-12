@@ -1,10 +1,8 @@
-import React from 'react'
-import hero from '../assets/hero.png'
+import React from "react";
+import hero from "../assets/hero.png";
 
 function HeroImg() {
-  return (
-    <img src={hero} alt="hero image" width="650" />
-  )
+  return <img src={hero} alt="hero image" className="w-[600px]" />;
 }
 
-export default HeroImg
+export default HeroImg;

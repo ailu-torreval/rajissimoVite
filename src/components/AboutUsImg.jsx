@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutUsImg(props) {
   return (
-    <div className="relative border border-2 border-[#fee3bb] pt-[10px] pl-[10px] rounded-[24px] h-[300px] w-[220px] sm:h-[350px] sm:w-[570px] md:h-[400px] md:w-[650px]">
+    <div className="relative border border-2 border-[#fee3bb] pt-[10px] pl-[10px] rounded-[24px] h-[300px] w-[220px] sm:h-[350px] sm:w-[570px] md:h-[380px] md:w-[650px] lg:h-[308px]lg:w-[534px]">
       <img
         src={props.img}
         alt=""

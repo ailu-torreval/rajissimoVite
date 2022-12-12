@@ -1,10 +1,10 @@
 import { data } from "autoprefixer";
 import React from "react";
-import MenuCard from "./MenuCard";
+import MenuCard from "../components/MenuCard";
 
 function MenuSection(props) {
   return (
-    <section className="mx-4 flex flex-col justify-between gap-4 ">
+    <section className="m-[40px] lg:mt-[40px] lg:m-[100px] flex flex-col justify-between gap-4 ">
       <h2 className="uppercase">{props.data.prodName}</h2>
       <div className="relative m-auto text-center md:p-12">
         <p className="max-w-[354px] border border-2 rounded-[20px] border-lightyellow mx-2 p-2 md:p-10 bg-white z-10 asymbox md:max-w-[700px] lg:max-w-[850px]">
