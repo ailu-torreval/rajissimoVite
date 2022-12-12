@@ -1,18 +1,25 @@
 import React, { useContext, useState } from "react";
 import { OrderContext } from "../contexts/OrderContext";
+import { BasketContext } from "../contexts/BasketContext";
 import Summary from "../components/Summary";
 import Btn from "../components/Btn";
+import Input from "../components/Input";
 
 function CheckoutPage(props) {
   const { orderForm, setOrderForm } = useContext(OrderContext);
-  const [nameChecked, setNameChecked] = useState(false);
-  const [lastNameChecked, setLastNameChecked] = useState(false);
-  const [phoneChecked, setPhoneChecked] = useState(false);
-  const [mailChecked, setMailChecked] = useState(false);
-  const [cardChecked, setCardChecked] = useState(false);
-  const [cardNameChecked, setCardNameChecked] = useState(false);
-  const [cvcChecked, setCvcChecked] = useState(false);
-  const [isValid, setIsValid] = useState(false);
+  const { basket, setBasket } = useContext(BasketContext);
+  const [ haveAddress, setHaveAddress ] = useState(true);
+  const [ streetChecked, setStreetChecked ] = useState(false);
+  const [ zipChecked, setZipChecked ] = useState(false);
+  const [ nameChecked, setNameChecked ] = useState(false);
+  const [ lastNameChecked, setLastNameChecked ] = useState(false);
+  const [ phoneChecked, setPhoneChecked ] = useState(false);
+  const [ mailChecked, setMailChecked ] = useState(false);
+  const [ cardChecked, setCardChecked ] = useState(false);
+  const [ cardNameChecked, setCardNameChecked ] = useState(false);
+  const [ cvcChecked, setCvcChecked ] = useState(false);
+  const [ isValid, setIsValid ] = useState(false);
+  const [ addValid, setAddValid ] = useState(false);
 
   function backToOrder() {
     props.setStep("your-order");
@@ -29,13 +36,55 @@ function CheckoutPage(props) {
       cardNameChecked === true &&
       cvcChecked === true
     ) {
-      // const total = orderForm.isDelivery ? subTotal + orderForm.deliveryFee : subTotal + orderForm.serviceFee;
+      const subTotal = basket.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
+        0
+      );
+      const total = orderForm.isDelivery ? subTotal + orderForm.deliveryFee : subTotal + orderForm.serviceFee;
       // setOrderForm({...orderForm, subTotal: subTotal, totalAmount: total})
       //the form is valid, proceed
-      props.setStep('submit-order');
+      console.log(subTotal, total);
+      // props.setStep('submit-order');
     } else {
       //form invalid, show alerts
       setIsValid(true);
+    }
+  }
+
+  function changeDelivery() {
+    orderForm.isDelivery === true ? setOrderForm({...orderForm, isDelivery: false}) : setOrderForm({...orderForm, isDelivery: true});
+    !orderForm.address1 && setHaveAddress(false)
+  }
+
+  function handleInput(ev, updater, itemName) {
+    if (ev.target.value.length <= 0) {
+      updater(false);
+    } else {
+      if(itemName == 'address1') {
+        console.log("add address");
+        setOrderForm({...orderForm, address1: ev.target.value})
+      } else {
+        console.log("add zip");
+        setOrderForm({...orderForm, zip: ev.target.value})
+      }
+      updater(true);
+      console.log(orderForm);
+    }
+  }
+
+  function addAddress(ev) {
+    ev.preventDefault();
+    if (
+      streetChecked === true &&
+      zipChecked === true     
+      ) {
+      console.log("valid");
+      //the form is valid, proceed
+      setHaveAddress(true)
+      setAddValid(false)
+    } else {
+      setAddValid(true)
+      console.log("unvalid");
     }
   }
 
@@ -43,21 +92,9 @@ function CheckoutPage(props) {
     <section>
       <button onClick={backToOrder}> ⇽ Back to Order</button>
       <h3 className="font-body">Checkout</h3>
-      {orderForm.isDelivery == true && (
-        <section>
-          <h4>Delivery Details</h4>
-          <p className="font-semibold">Deliver to: </p>
-          <p className="capitalize">
-            {orderForm.address1}, {orderForm.zip}, {orderForm.city}.
-          </p>
-          <p>
-            <span className="font-semibold">Deliver time: </span>
-             30 minutes
-          </p>
-        </section>
-      )}
-      {orderForm.isDelivery !== true && (
-        <section>
+      <section className="flex">
+      {!orderForm.isDelivery && (
+        <div>
           <h4>Pick Up Details</h4>
           <p className="font-semibold">Pick up at:</p>
           <p>Frederiksberggade 32, 1459 København</p>
@@ -65,8 +102,46 @@ function CheckoutPage(props) {
             <span className="font-semibold">Pickup time: </span>
             20 minutes
           </p>
-        </section>
+        </div>
+      ) }
+      {orderForm.isDelivery && (
+        <>        
+        { haveAddress ? (
+          <div>
+            <h4>Delivery Details</h4>
+            <p className="font-semibold">Deliver to: </p>
+            <p className="capitalize">
+              {orderForm.address1}, {orderForm.zip}, {orderForm.city}.
+            </p>
+            <p>
+              <span className="font-semibold">Deliver time: </span>
+               30 minutes
+            </p>
+            <Btn content="Change Address" class="bg-lightyellow text-blue  p-1 my-1  rounded-md font-bold  w-full"   action={()=> setHaveAddress(false)} />
+          </div>
+        ) : 
+        (<div>
+          <h4>Add Address</h4>
+          <form>
+            <Input content="Street & Number" ph='Add address..' action={(ev)=> handleInput(ev, setStreetChecked, 'address1')} class="field" isValid={addValid} state={streetChecked} alert='Please add a valid address' />
+            <Input content="Zip Code" ph='Add zip code..' action={(ev)=> handleInput(ev, setZipChecked, 'zip')} class="field" isValid={addValid} state={zipChecked} alert='Please add a valid zip code' />
+            <label>
+              City:
+              <select name="city" >
+                <option >Copenhagen</option>
+              </select>
+            </label>
+            <Btn content="Add Address" class="bg-lightyellow text-blue p-1 my-1 rounded-md font-bold  w-full"   action={(ev)=> addAddress(ev)} />
+            {/* <button onClick={(ev)=> addAddress(ev)}>Add Address</button> */}
+          </form>
+        </div>)}
+        </>
       )}
+
+
+      {orderForm.isDelivery ? <Btn content="Change for Pickup" class="btn1" action={changeDelivery} /> :  <Btn content="Change for Delivery" class="btn1" action={changeDelivery} />}
+      {/* {!orderForm.isDelivery && <Btn content="Change for Delivery" class="btn1" action={changeDelivery} />} */}
+      </section>
       <section>
         <h4>Contact Details</h4>
         <form>
@@ -85,6 +160,7 @@ function CheckoutPage(props) {
                     setNameChecked(true);
                   }
                 }}
+                className='field'
                 type="text"
                 placeholder="Name.."
               />
@@ -108,6 +184,7 @@ function CheckoutPage(props) {
                     setLastNameChecked(true);
                   }
                 }}
+                className='field'
                 type="text"
                 placeholder="Last name.."
               />
@@ -135,6 +212,7 @@ function CheckoutPage(props) {
                     setPhoneChecked(true);
                   }
                 }}
+                className='field'
                 type="text"
                 placeholder="Only numbers"
               />
@@ -158,6 +236,7 @@ function CheckoutPage(props) {
                     setMailChecked(true);
                   }
                 }}
+                className='field'
                 type="email"
                 placeholder="email.."
               />
@@ -183,6 +262,7 @@ function CheckoutPage(props) {
                   setCardChecked(true);
                 }
               }}
+              className='field'
               type="text"
               placeholder="Card Nr.."
             />
@@ -204,6 +284,7 @@ function CheckoutPage(props) {
                   setCardNameChecked(true);
                 }
               }}
+              className='field'
               type="text"
               placeholder="Type the name as is written on the card"
             />
@@ -255,6 +336,7 @@ function CheckoutPage(props) {
                     setCvcChecked(true);
                   }
                 }}
+                className='field'
                 type="text"
                 placeholder="CVC"
               />

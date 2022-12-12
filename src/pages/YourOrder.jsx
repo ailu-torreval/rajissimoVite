@@ -13,13 +13,6 @@ function YourOrder(props) {
     const {orderForm, setOrderForm} = useContext(OrderContext)
     const { page, setPage } = useContext(PageContext)
 
-  
-    // const subTotal = basket.reduce(
-    //     (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
-    //     0,
-    //   );
-
-    // let subTotal = 900;
 
     function removeProd(id) {
         setBasket((prevState)=> prevState.filter((prod) => prod.id !== id))
@@ -36,11 +29,13 @@ function YourOrder(props) {
     }
 
     function goToCheckout() {
-      // const total = orderForm.isDelivery ? subTotal + orderForm.deliveryFee : subTotal + orderForm.serviceFee;
-      // setOrderForm({...orderForm, subTotal: subTotal, totalAmount: total})
-      console.log("go to checkout", orderForm);
-      props.setStep('checkout');
-      window.location = "#";
+      if(basket.length < 1) {
+        window.location = "#";
+      } else {
+        console.log("go to checkout", orderForm);
+        props.setStep('checkout');
+        window.location = "#";
+      }
     }
 
 

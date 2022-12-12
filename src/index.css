@@ -24,6 +24,9 @@
     p{
         @apply text-sm lg:text-base font-body;
     }
+    .field {
+        @apply border border-2 border-blue rounded-[14px] p-2 text-xs;
+    }
 }
 
 * {

@@ -10,10 +10,7 @@ function Summary(props) {
     (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
     0
   );
-
-  function click() {
-    console.log(props);
-  }
+  
   return (
     <div className={props.class}>
       <h3>Summary</h3>
@@ -38,33 +35,6 @@ function Summary(props) {
           Total: <span>{subTotal + orderForm.serviceFee} kr.</span>{" "}
         </p>
       )}
-      {/* {props.subTotal ? (
-        <p>
-          Subtotal: <span>{props.subTotal} kr.</span>
-        </p>
-      ) : (
-        <p>
-          Subtotal: <span>{orderForm.subTotal} kr.</span>
-        </p>
-      )}
-      {orderForm.isDelivery ? (
-        <p>
-          Delivery Fee: <span>{orderForm.deliveryFee} kr.</span>
-        </p>
-      ) : (
-        <p>
-          Service Fee: <span>{orderForm.serviceFee} kr.</span>
-        </p>
-      )}
-      {props.subTotal ? (
-        <p>
-          Total: <span>{props.subTotal + orderForm.deliveryFee} kr.</span>
-        </p>
-      ) : (
-        <p>
-          Total: <span>{orderForm.totalAmount} kr.</span>
-        </p>
-      )} */}
     </div>
   );
 }

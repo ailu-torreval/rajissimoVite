@@ -19,7 +19,7 @@ function OrderApp() {
     phoneNr: undefined,
     mail: undefined,
     zip: "",
-    city: "",
+    city: "Copenhagen",
     order: {},
     isOrder: false,
     isDelivery: undefined,
