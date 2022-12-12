@@ -127,8 +127,8 @@ function CheckoutPage(props) {
         (<div>
           <h4>Add Address</h4>
           <form>
-            <Input content="Street & Number" ph='Add address..' action={(ev)=> handleInput(ev, setStreetChecked, 'address1')} class="field" isValid={addValid} state={streetChecked} alert='Please add a valid address' />
-            <Input content="Zip Code" ph='Add zip code..' action={(ev)=> handleInput(ev, setZipChecked, 'zip')} class="field" isValid={addValid} state={zipChecked} alert='Please add a valid zip code' />
+            <Input content="Street & Number" placeholder='Add address..' action={(ev)=> handleInput(ev, setStreetChecked, 'address1')} class="field" isValid={addValid} state={streetChecked} alert='Please add a valid address' />
+            <Input content="Zip Code" placeholder='Add zip code..' action={(ev)=> handleInput(ev, setZipChecked, 'zip')} class="field" isValid={addValid} state={zipChecked} alert='Please add a valid zip code' />
             <label>
               City:
               <select name="city" >
