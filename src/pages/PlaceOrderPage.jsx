@@ -5,7 +5,7 @@ import SubmitOrder from './SubmitOrder';
 
 function PlaceOrderPage() {
 
-  const [step, setStep] = useState('submit-order');
+  const [step, setStep] = useState('your-order');
 
 
   return (
