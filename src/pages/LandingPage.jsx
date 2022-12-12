@@ -1,8 +1,8 @@
 import {useContext, useState} from 'react';
 import AddressInputArea from '../components/AddressInputArea';
 import BtnGrid from '../components/BtnGrid';
-import { OrderContext } from '../contexts/OrderContext';
 import { PageContext } from '../contexts/PageContext';
+import { OrderContext } from '../contexts/OrderContext';
 
 function LandingPage() {
 

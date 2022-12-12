@@ -1,10 +1,12 @@
 import {useState, useContext} from 'react'
 import Btn from './Btn'
 import { OrderProdDataContext } from '../contexts/OrderProdDataContext';
+import { BasketContext } from '../contexts/BasketContext';
 
 function Controls(props) {
 
-  const { orderProdData, setOrderProdData } = useContext(OrderProdDataContext)
+  const { orderProdData, setOrderProdData } = useContext(OrderProdDataContext);
+  const { basket, setBasket } = useContext(BasketContext)
 
   const [counter, setCounter] = useState(1);
 
@@ -25,19 +27,26 @@ function Controls(props) {
     console.log("why is not working", orderProdData)
     props.setCompleteSel(false)
 
+    const total = ( orderProdData.netPrice + orderProdData.extraPrice ) * counter;
     //check if it has preferences required
     if(orderProdData.preferences == undefined) {
       //product has no options, just send it to basket
       props.setShowProd(false);
-      setOrderProdData({...orderProdData, qty: counter, totalAmount: ( orderProdData.netPrice + orderProdData.extraPrice ) * counter})
+      setOrderProdData((prevState) => prevState.qty = counter)
+      setOrderProdData(orderProdData.totalProdAmount = total)
+      console.log(total);
+      // setOrderProdData({...orderProdData, qty: counter, totalProdAmount: ( orderProdData.netPrice + orderProdData.extraPrice ) * counter})
       console.log("NO OPTIONS", orderProdData);
-      props.setBasket((old)=> old.concat(orderProdData))
+      setBasket((old)=> old.concat(orderProdData))
     } else if(orderProdData.preferences.length == props.optQty) {
       //prod has options and are all chosen already
+      setOrderProdData((prevState) => prevState.qty = counter)
+      setOrderProdData(orderProdData.totalProdAmount = total)
+      console.log(total);
       props.setShowProd(false);
-      setOrderProdData({...orderProdData, qty: counter, totalAmount: ( orderProdData.netPrice + orderProdData.extraPrice ) * counter})
+      // setOrderProdData({...orderProdData, qty: counter, totalProdAmount: ( orderProdData.netPrice + orderProdData.extraPrice ) * counter})
       console.log("all the options are selected", orderProdData);
-      props.setBasket((old)=> old.concat(orderProdData))
+      setBasket((old)=> old.concat(orderProdData))
     } else {
       console.log("ELSE");
       //you need to complete your selection
