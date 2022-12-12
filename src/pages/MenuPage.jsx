@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FilterCard from "../components/FilterCard";
-import MenuSection from "../components/MenuSection";
+import MenuSection from "../sections/MenuSection";
 
 function MenuPage() {
   const [menuData, setMenuData] = useState([]);
@@ -52,7 +52,7 @@ function MenuPage() {
         />
       </svg>
 
-      <div className="grid items-center gap-4 md:gap-y-16 m-auto sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center md:py-[100px] py-[40px] ">
+      <div className="grid items-center gap-4 md:gap-y-16 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center lg:p-[100px] p-[40px] ">
         {menuData.map((data, index) => (
           <FilterCard
             key={index}

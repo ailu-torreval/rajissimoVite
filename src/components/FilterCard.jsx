@@ -9,7 +9,7 @@ function FilterCard(props) {
   return (
     <button
       onClick={selectCat}
-      className="border border-2 px-2 bg-white border-yellow rounded-[10px] py-2 capitalize font-header w-[240px] sm:h-[68px] md:w-[280px] text-blue sm:flex sm:align-center sm:items-center sm:relative"
+      className="border border-2 px-2 bg-white border-yellow rounded-[10px] py-2 capitalize font-header w-[240px] sm:h-[68px] md:w-[260px] xl:w-[280px] text-blue sm:flex sm:align-center sm:items-center sm:relative"
     >
       <img
         src={props.data.illustration}

@@ -13,7 +13,7 @@ function MenuCard(props) {
   }
   return (
     <div className="py-[40px] flex flex-col items-start sm:items-center">
-      <h3 className="text-yellow uppercase text-center underline md:mb-[40px]">
+      <h3 className="text-yellow uppercase text-center underline md:mb-[100px] mb-[40px]">
         {props.prod.title}
       </h3>
       <div className="flex flex-col md:flex md:flex-row md:gap-4 lg:gap-12 lg:px-12">

@@ -36,11 +36,11 @@ function NavBar(props) {
 
   function goToOrderApp() {
     setIsLogin(true);
-    setPage('landingPage')
+    setPage("landingPage");
   }
 
   return (
-    <nav className="flex text-lg justify-between items-center px-2 font-body text-darkyellow h-16 m-4">
+    <nav className="flex text-lg justify-between items-center font-body text-darkyellow my-[20px] mx-[20px] sm:mx-[40px] lg:mx-[100px]">
       <Logo />
       <BtnGrid
         class="flex gap-x-6 justify-between"
@@ -50,7 +50,7 @@ function NavBar(props) {
         btn2action={goToMenuPage}
         btn2content="Menu"
         btn2class="btn3 hidden md:block"
-        btn3content="Find Us"
+        btn3content="About us"
         btn3action={goToAboutUs}
         btn3class="btn3 hidden md:block"
         btn4content="☰"
