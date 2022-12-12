@@ -8,9 +8,7 @@ function Basket(props) {
 
   const { page, setPage } = useContext(PageContext)
   const { basket, setBasket } = useContext(BasketContext)
-  function click() {
-    console.log(props);
-  }
+
   const subTotal = basket.reduce(
     (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
     0,
@@ -31,7 +29,6 @@ function Basket(props) {
   return (
     <div className={props.class} >
       <h4>Basket</h4>
-      <button onClick={click}>click</button>
       <div>
       {basket.map((prod, index) => <BasketProdCard key={index} prod={prod} action={()=> removeProd(prod.id)} checkout={false} />)}
       </div>

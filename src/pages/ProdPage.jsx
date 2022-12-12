@@ -26,9 +26,6 @@ function ProdPage(props) {
     props.setShowProd(false);
   }
 
-  function click() {
-    console.log(orderProdData);
-  }
 
   return (
     <OrderProdDataContext.Provider value={{ orderProdData, setOrderProdData }}>
@@ -46,7 +43,6 @@ function ProdPage(props) {
           <img src={prod[0].imgSrc} alt="" />
           <div className="flex justify-between p-2">
             <h3>{prod[0].name}</h3>
-            <button onClick={click} >CLICK</button>
             {prod[0].dietOpt == "v" && (
               <img src={vegan} alt="vegan icon" width="39" />
             )}

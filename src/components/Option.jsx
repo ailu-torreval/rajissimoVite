@@ -177,17 +177,6 @@ function Option({ id, option, completeSel }) {
     console.log("FINAL ARRAY", orderProdData);
   }
 
-  function click() {
-    const countedChecks = checkedState.reduce((allBoxes, check) => {
-      const currCount = allBoxes[check] ?? 0;
-      return {
-        ...allBoxes,
-        [check]: currCount + 1,
-      };
-    }, {});
-    console.log(countedChecks);
-    console.log(orderProdData);
-  }
 
 
   return (
@@ -201,7 +190,6 @@ function Option({ id, option, completeSel }) {
         {option.optDesc && <p>{option.optDesc}</p>}
         {option.optSubDesc && <p>{option.optSubDesc}</p>}
         <div className="flex">
-          <button onClick={click}>click</button>
           {option.illustration && (
             <img src={dummyImg} alt="product illustration" />
           )}

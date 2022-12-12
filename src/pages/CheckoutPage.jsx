@@ -136,7 +136,6 @@ function CheckoutPage(props) {
               </select>
             </label>
             <Btn content="Add Address" class="bg-lightyellow text-blue p-1 my-1 rounded-md font-bold  w-full"   action={(ev)=> addAddress(ev)} />
-            {/* <button onClick={(ev)=> addAddress(ev)}>Add Address</button> */}
           </form>
         </div>)}
         </>
