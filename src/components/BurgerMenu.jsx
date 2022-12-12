@@ -14,24 +14,31 @@ function BurgerMenu(props) {
     isLogin === true && setIsLogin(false);
     props.setShowBurgerMenu(false);
     setPage("homePage");
+    window.location = '#';
   }
 
   function goToMenuPage() {
     isLogin === true && setIsLogin(false);
     props.setShowBurgerMenu(false);
     setPage("menuPage");
+    window.location = '#';
+
   }
 
   function goToAboutUs() {
     isLogin === true && setIsLogin(false);
     props.setShowBurgerMenu(false);
     setPage("abUsPage");
+    window.location = '#';
+
   }
 
   function goToOrderApp() {
     props.setShowBurgerMenu(false);
     setIsLogin(true);
-    setPage('landingPage')
+    setPage('landingPage');
+    window.location = '#';
+
   }
 
   return (

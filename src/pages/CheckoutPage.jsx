@@ -23,6 +23,8 @@ function CheckoutPage(props) {
 
   function backToOrder() {
     props.setStep("your-order");
+    window.location = '#';
+
   }
 
 
@@ -83,6 +85,7 @@ function CheckoutPage(props) {
       setOrderForm({...orderForm, subTotal: subTotal, totalAmount: total, order: {...basket}})
       console.log(orderForm);
       props.setStep('submit-order');
+      window.location = '#';
     } else {
       //form invalid, show alerts
       setIsValid(true);

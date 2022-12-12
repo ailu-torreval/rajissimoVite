@@ -17,6 +17,8 @@ function LandingPage() {
       isDelivery: true
     });
     orderForm.address1 !== undefined ? setPage('orderPage') : setAddressAlert(true);
+    window.location = '#';
+
 
   }
 
@@ -27,6 +29,8 @@ function LandingPage() {
     });
     console.log(orderForm);
     orderForm.address1.length > 2 || orderForm.address1 !== undefined  ? setPage('orderPage') : setAddressAlert(true);
+    window.location = '#';
+
   }
   return (
     <section>

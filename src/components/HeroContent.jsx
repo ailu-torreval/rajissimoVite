@@ -9,7 +9,9 @@ function HeroContent() {
 
     function goToOrderApp() {
       setIsLogin(true);
-      setPage('landingPage')
+      setPage('landingPage');
+      window.location = '#';
+
     }
 
   return (

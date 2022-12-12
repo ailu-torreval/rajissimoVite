@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import GameBanner from "./components/GameBanner";
 import OrderPage from "./pages/OrderPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
 import LandingPage from "./pages/LandingPage";
@@ -52,8 +51,6 @@ function OrderApp() {
       <OrderProductsContext.Provider value={{ productsData, setProductsData }}>
       <OrderContext.Provider value={{ orderForm, setOrderForm }}>
       <BasketContext.Provider value={{ basket, setBasket}}>
-        { page === 'landingPage' && <GameBanner /> }
-        { page === 'orderPage' && <GameBanner /> }
         { page === 'landingPage' && <LandingPage /> }
         { page === 'orderPage' && <OrderPage /> }
         { page === 'placeOrderPage' && <PlaceOrderPage /> }

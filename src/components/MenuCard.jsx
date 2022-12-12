@@ -10,6 +10,8 @@ function MenuCard(props) {
   function goToOrderApp() {
     setIsLogin(true);
     setPage("landingPage");
+    window.location = '#';
+
   }
   return (
     <div className="py-[40px] flex flex-col items-start sm:items-center">

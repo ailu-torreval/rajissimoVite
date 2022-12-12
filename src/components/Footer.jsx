@@ -11,24 +11,34 @@ function Footer(props) {
   function goToHomePage() {
     setIsLogin(false);
     setPage("homePage");
+    window.location = '#';
+
   }
 
   function goToOrderApp() {
     setIsLogin(true);
     setPage("landingPage");
+    window.location = '#';
+
   }
 
   function goToMenu() {
     setIsLogin(false);
     setPage("menuPage");
+    window.location = '#';
+
   }
   function goToAbUs() {
     setIsLogin(false);
     setPage("abUsPage");
+    window.location = '#';
+
   }
   function goToSubsPage() {
     setIsLogin(false);
     setPage("subsPage");
+    window.location = '#';
+
   }
 
   function goTo() {

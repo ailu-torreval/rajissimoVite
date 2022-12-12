@@ -20,7 +20,9 @@ function YourOrder(props) {
       }
     
       function backToMenu() {
-        setPage('orderPage')
+        setPage('orderPage');
+        window.location = '#';
+
       }
     
     function addMsg(ev) {
