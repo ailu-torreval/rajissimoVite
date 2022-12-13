@@ -180,20 +180,20 @@ function Option({ id, option, completeSel }) {
 
 
   return (
-      <div id={generateId()}>
-        <h4>{option.optName}</h4>{" "}
+      <div id={generateId()} className="px-4 mb-8">
+        <h4>{option.optName}</h4>
         {completeSel && (
           <span className="text-darkyellow">
             Please complete your selection
           </span>
         )}
-        {option.optDesc && <p>{option.optDesc}</p>}
-        {option.optSubDesc && <p>{option.optSubDesc}</p>}
+        {option.optDesc && <p className="mb-2 capitalize">{option.optDesc}</p>}
+        {option.optSubDesc && <p className="mb-2 capitalize">{option.optSubDesc}</p>}
         <div className="flex">
           {option.illustration && (
-            <img src={dummyImg} alt="product illustration" />
+            <img className="hidden md:block" src={dummyImg} alt="product illustration" />
           )}
-          <div className="flex flex-col">
+          <div className="flex flex-col ml-6">
             {option.selectOpt &&
               option.selectOpt.map((opt, index) =>
                 option.isRadio ? (
