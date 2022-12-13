@@ -8,41 +8,41 @@ import Input from "../components/Input";
 function CheckoutPage(props) {
   const { orderForm, setOrderForm } = useContext(OrderContext);
   const { basket, setBasket } = useContext(BasketContext);
-  const [ haveAddress, setHaveAddress ] = useState(true);
-  const [ streetChecked, setStreetChecked ] = useState(false);
-  const [ zipChecked, setZipChecked ] = useState(false);
-  const [ nameChecked, setNameChecked ] = useState(false);
-  const [ lastNameChecked, setLastNameChecked ] = useState(false);
-  const [ phoneChecked, setPhoneChecked ] = useState(false);
-  const [ mailChecked, setMailChecked ] = useState(false);
-  const [ cardChecked, setCardChecked ] = useState(false);
-  const [ cardNameChecked, setCardNameChecked ] = useState(false);
-  const [ cvcChecked, setCvcChecked ] = useState(false);
-  const [ isValid, setIsValid ] = useState(false);
-  const [ addValid, setAddValid ] = useState(false);
+  const [haveAddress, setHaveAddress] = useState(true);
+  const [streetChecked, setStreetChecked] = useState(false);
+  const [zipChecked, setZipChecked] = useState(false);
+  const [nameChecked, setNameChecked] = useState(false);
+  const [lastNameChecked, setLastNameChecked] = useState(false);
+  const [phoneChecked, setPhoneChecked] = useState(false);
+  const [mailChecked, setMailChecked] = useState(false);
+  const [cardChecked, setCardChecked] = useState(false);
+  const [cardNameChecked, setCardNameChecked] = useState(false);
+  const [cvcChecked, setCvcChecked] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+  const [addValid, setAddValid] = useState(false);
 
   function backToOrder() {
     props.setStep("your-order");
-    window.location = '#';
-
+    window.location = "#";
   }
 
-
   function changeDelivery() {
-    orderForm.isDelivery === true ? setOrderForm({...orderForm, isDelivery: false}) : setOrderForm({...orderForm, isDelivery: true});
-    !orderForm.address1 && setHaveAddress(false)
+    orderForm.isDelivery === true
+      ? setOrderForm({ ...orderForm, isDelivery: false })
+      : setOrderForm({ ...orderForm, isDelivery: true });
+    !orderForm.address1 && setHaveAddress(false);
   }
 
   function handleInput(ev, updater, itemName) {
     if (ev.target.value.length <= 0) {
       updater(false);
     } else {
-      if(itemName == 'address1') {
+      if (itemName == "address1") {
         console.log("add address");
-        setOrderForm({...orderForm, address1: ev.target.value})
+        setOrderForm({ ...orderForm, address1: ev.target.value });
       } else {
         console.log("add zip");
-        setOrderForm({...orderForm, zip: ev.target.value})
+        setOrderForm({ ...orderForm, zip: ev.target.value });
       }
       updater(true);
       console.log(orderForm);
@@ -51,16 +51,13 @@ function CheckoutPage(props) {
 
   function addAddress(ev) {
     ev.preventDefault();
-    if (
-      streetChecked === true &&
-      zipChecked === true     
-      ) {
+    if (streetChecked === true && zipChecked === true) {
       console.log("valid");
       //the form is valid, proceed
-      setHaveAddress(true)
-      setAddValid(false)
+      setHaveAddress(true);
+      setAddValid(false);
     } else {
-      setAddValid(true)
+      setAddValid(true);
       console.log("unvalid");
     }
   }
@@ -78,14 +75,22 @@ function CheckoutPage(props) {
     ) {
       //the form is valid, proceed
       const subTotal = basket.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
+        (accumulator, currentValue) =>
+          accumulator + currentValue.totalProdAmount,
         0
       );
-      const total = orderForm.isDelivery ? subTotal + orderForm.deliveryFee : subTotal + orderForm.serviceFee;
-      setOrderForm({...orderForm, subTotal: subTotal, totalAmount: total, order: {...basket}})
+      const total = orderForm.isDelivery
+        ? subTotal + orderForm.deliveryFee
+        : subTotal + orderForm.serviceFee;
+      setOrderForm({
+        ...orderForm,
+        subTotal: subTotal,
+        totalAmount: total,
+        order: { ...basket },
+      });
       console.log(orderForm);
-      props.setStep('submit-order');
-      window.location = '#';
+      props.setStep("submit-order");
+      window.location = "#";
     } else {
       //form invalid, show alerts
       setIsValid(true);
@@ -93,63 +98,104 @@ function CheckoutPage(props) {
   }
 
   return (
-    <section>
-      <button onClick={backToOrder}> ⇽ Back to Order</button>
-      <h3 className="font-body">Checkout</h3>
-      <section className="flex">
-      {!orderForm.isDelivery && (
-        <div>
-          <h4>Pick Up Details</h4>
-          <p className="font-semibold">Pick up at:</p>
-          <p>Frederiksberggade 32, 1459 København</p>
-          <p>
-            <span className="font-semibold">Pickup time: </span>
-            20 minutes
-          </p>
-        </div>
-      ) }
-      {orderForm.isDelivery && (
-        <>        
-        { haveAddress ? (
-          <div>
-            <h4>Delivery Details</h4>
-            <p className="font-semibold">Deliver to: </p>
-            <p className="capitalize">
-              {orderForm.address1}, {orderForm.zip}, {orderForm.city}.
-            </p>
+    <section className="m-[20px] sm:m-[40px] lg:m-[100px]">
+      <button className="pb-[40px]" onClick={backToOrder}>
+        {" "}
+        ⇽ Back to Order
+      </button>
+      <h3 className="font-body pb-[20px] sm:pb-[40px]">Checkout</h3>
+      <section className="flex flex-col gap-4 sm:flex-row">
+        {!orderForm.isDelivery && (
+          <div className="flex flex-col gap-2 mb-[20px] sm:mb-[40px]">
+            <h4>Pick Up Details</h4>
+            <p className="font-semibold">Pick up at:</p>
+            <p>Frederiksberggade 32, 1459 København</p>
             <p>
-              <span className="font-semibold">Deliver time: </span>
-               30 minutes
+              <span className="font-semibold">Pickup time: </span>
+              20 minutes
             </p>
-            <Btn content="Change Address" class="bg-lightyellow text-blue  p-1 my-1  rounded-md font-bold  w-full"   action={()=> setHaveAddress(false)} />
           </div>
-        ) : 
-        (<div>
-          <h4>Add Address</h4>
-          <form>
-            <Input content="Street & Number" placeholder='Add address..' action={(ev)=> handleInput(ev, setStreetChecked, 'address1')} class="field" isValid={addValid} state={streetChecked} alert='Please add a valid address' />
-            <Input content="Zip Code" placeholder='Add zip code..' action={(ev)=> handleInput(ev, setZipChecked, 'zip')} class="field" isValid={addValid} state={zipChecked} alert='Please add a valid zip code' />
-            <label>
-              City:
-              <select name="city" >
-                <option >Copenhagen</option>
-              </select>
-            </label>
-            <Btn content="Add Address" class="bg-lightyellow text-blue p-1 my-1 rounded-md font-bold  w-full"   action={(ev)=> addAddress(ev)} />
-          </form>
-        </div>)}
-        </>
-      )}
+        )}
+        {orderForm.isDelivery && (
+          <>
+            {haveAddress ? (
+              <div className="flex flex-col gap-2 mb-[20px] sm:mb-[40px]">
+                <h4>Delivery Details</h4>
+                <p className="font-semibold">Deliver to: </p>
+                <p className="capitalize">
+                  {orderForm.address1}, {orderForm.zip}, {orderForm.city}.
+                </p>
+                <p>
+                  <span className="font-semibold">Deliver time: </span>
+                  30 minutes
+                </p>
+                <Btn
+                  content="Change Address"
+                  class="bg-lightyellow text-blue  p-1 my-1  rounded-md font-bold  w-full"
+                  action={() => setHaveAddress(false)}
+                />
+              </div>
+            ) : (
+              <div>
+                <h4>Add Address</h4>
+                <form>
+                  <Input
+                    content="Street & Number"
+                    placeholder="Add address.."
+                    action={(ev) =>
+                      handleInput(ev, setStreetChecked, "address1")
+                    }
+                    class="field"
+                    isValid={addValid}
+                    state={streetChecked}
+                    alert="Please add a valid address"
+                  />
+                  <Input
+                    content="Zip Code"
+                    placeholder="Add zip code.."
+                    action={(ev) => handleInput(ev, setZipChecked, "zip")}
+                    class="field"
+                    isValid={addValid}
+                    state={zipChecked}
+                    alert="Please add a valid zip code"
+                  />
+                  <label>
+                    City:
+                    <select name="city">
+                      <option>Copenhagen</option>
+                    </select>
+                  </label>
+                  <Btn
+                    content="Add Address"
+                    class="bg-lightyellow text-blue p-1 my-1 rounded-md font-bold  w-full"
+                    action={(ev) => addAddress(ev)}
+                  />
+                </form>
+              </div>
+            )}
+          </>
+        )}
 
-
-      {orderForm.isDelivery ? <Btn content="Change for Pickup" class="btn1" action={changeDelivery} /> :  <Btn content="Change for Delivery" class="btn1" action={changeDelivery} />}
-      {/* {!orderForm.isDelivery && <Btn content="Change for Delivery" class="btn1" action={changeDelivery} />} */}
+        {orderForm.isDelivery ? (
+          <Btn
+            content="Change for Pickup"
+            class="btn1"
+            action={changeDelivery}
+          />
+        ) : (
+          <Btn
+            content="Change for Delivery"
+            class="btn1"
+            action={changeDelivery}
+          />
+        )}
+        {/* {!orderForm.isDelivery && <Btn content="Change for Delivery" class="btn1" action={changeDelivery} />} */}
       </section>
-      <section>
+      <section className="py-[20px] sm:py-[40px] flex flex-col gap-2">
         <h4>Contact Details</h4>
         <form>
-          <div>
-            <label>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <label className="flex flex-col">
               <p>First Name</p>
               <input
                 onKeyDown={(ev) => {
@@ -163,7 +209,7 @@ function CheckoutPage(props) {
                     setNameChecked(true);
                   }
                 }}
-                className='field'
+                className="field "
                 type="text"
                 placeholder="Name.."
               />
@@ -173,7 +219,7 @@ function CheckoutPage(props) {
                 </span>
               )}
             </label>
-            <label>
+            <label className="flex flex-col">
               <p>Last Name</p>
               <input
                 onKeyDown={(ev) => {
@@ -187,7 +233,7 @@ function CheckoutPage(props) {
                     setLastNameChecked(true);
                   }
                 }}
-                className='field'
+                className="field"
                 type="text"
                 placeholder="Last name.."
               />
@@ -200,8 +246,8 @@ function CheckoutPage(props) {
               )}
             </label>
           </div>
-          <div>
-            <label>
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <label className="flex flex-col">
               <p>Phone Nr.</p>
               <input
                 onKeyDown={(ev) => {
@@ -215,7 +261,7 @@ function CheckoutPage(props) {
                     setPhoneChecked(true);
                   }
                 }}
-                className='field'
+                className="field"
                 type="text"
                 placeholder="Only numbers"
               />
@@ -225,7 +271,7 @@ function CheckoutPage(props) {
                 </span>
               )}
             </label>
-            <label>
+            <label className="flex flex-col">
               <p>Email</p>
               <input
                 onKeyDown={(ev) => {
@@ -239,7 +285,7 @@ function CheckoutPage(props) {
                     setMailChecked(true);
                   }
                 }}
-                className='field'
+                className="field"
                 type="email"
                 placeholder="email.."
               />
@@ -253,9 +299,9 @@ function CheckoutPage(props) {
         </form>
       </section>
       <section>
-        <h3>Card Details</h3>
+        <h4>Card Details</h4>
         <form>
-          <label>
+          <label className="flex flex-col ">
             <p>Card Number</p>
             <input
               onKeyDown={(ev) => {
@@ -265,7 +311,7 @@ function CheckoutPage(props) {
                   setCardChecked(true);
                 }
               }}
-              className='field'
+              className="field "
               type="text"
               placeholder="Card Nr.."
             />
@@ -277,7 +323,7 @@ function CheckoutPage(props) {
               </span>
             )}
           </label>
-          <label>
+          <label className="flex flex-col my-4">
             <p>Card Holder Name</p>
             <input
               onKeyDown={(ev) => {
@@ -287,7 +333,7 @@ function CheckoutPage(props) {
                   setCardNameChecked(true);
                 }
               }}
-              className='field'
+              className="field"
               type="text"
               placeholder="Type the name as is written on the card"
             />
@@ -297,10 +343,10 @@ function CheckoutPage(props) {
               </span>
             )}
           </label>
-          <div>
-            <label>
+          <div className="flex flex-col">
+            <label className="flex items-center gap-2">
               <p>Expiration Date</p>
-              <select name="month" value='jan' onChange={()=>{}}>
+              <select name="month" value="jan" onChange={() => {}}>
                 <option value="jan">January</option>
                 <option value="feb">February</option>
                 <option value="march">March</option>
@@ -314,8 +360,8 @@ function CheckoutPage(props) {
                 <option value="nov">November</option>
                 <option value="dec">December</option>
               </select>
-              <select name="year" value='2022' onChange={()=>{}} >
-                <option value="2022" >2022</option>
+              <select name="year" value="2022" onChange={() => {}}>
+                <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
@@ -329,7 +375,7 @@ function CheckoutPage(props) {
                 <option value="2033">2033</option>
               </select>
             </label>
-            <label>
+            <label className="flex sm:items-center gap-2">
               <p>CVC</p>
               <input
                 onKeyDown={(ev) => {
@@ -339,7 +385,7 @@ function CheckoutPage(props) {
                     setCvcChecked(true);
                   }
                 }}
-                className='field'
+                className="field grow max-w-[285px]"
                 type="text"
                 placeholder="CVC"
               />
@@ -350,8 +396,12 @@ function CheckoutPage(props) {
               )}
             </label>
           </div>
-      <Summary class="" />
-      <Btn class="btn2" content="Place Order ➔" action={(ev) => submit(ev)} />
+          <Summary class="" />
+          <Btn
+            class="btn2"
+            content="Place Order ➔"
+            action={(ev) => submit(ev)}
+          />
         </form>
       </section>
     </section>
