@@ -34,7 +34,7 @@ function SubscriptionForm(props) {
   return (
     <>
       <form className="flex flex-col ">
-        <div className="flex flex-col md:flex-row md:gap-4 py-2">
+        <div className="flex flex-col md:flex-row md:gap-4 py-1">
         <Input
           content="First Name"
           placeholder="Your name..."
