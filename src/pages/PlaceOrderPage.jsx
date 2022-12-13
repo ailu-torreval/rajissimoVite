@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import YourOrder from './yourOrder';
+import YourOrder from './YourOrder';
 import CheckoutPage from './CheckoutPage';
 import SubmitOrder from './SubmitOrder';
 
