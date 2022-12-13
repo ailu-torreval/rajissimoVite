@@ -9,14 +9,22 @@ function OrderPage() {
 
   const { basket, setBasket }  =useContext(BasketContext)
   const [ cat, setCat ] = useState([ "Combos", "Churros & Waffles", "Gelato", "Drinks" ]);
-  // const [ showBasket, setShowBasket ] = useState(false);
+
+  function scrollTop() {
+    const elm = document.getElementById("cat_0");
+    elm.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }
 
   return (
     <>
-    <Btn class='bg-yellow text-white rounded-full text-lg md:hidden fixed px-4 py-3 bottom-4 right-6 rotate-[-90deg]' content='➔' action={()=> window.location = '#'} />
+    <Btn class='bg-yellow text-white rounded-full text-lg fixed px-4 py-3 bottom-4 right-6 rotate-[-90deg]' content='➔' action={scrollTop} />
     <ControlPanel cat={cat}/>
     <section className="flex flex-col md:flex-row">
-      <ProductGrid  class="basis-3/4" cat={cat} />
+      <ProductGrid  class="basis-3/4 px-3" cat={cat} />
     { basket.length > 0 && <Basket class="basis-1/4 basket" />}
     </section>
     </>

@@ -24,16 +24,17 @@ function ProdPage(props) {
 
   function closePage() {
     props.setShowProd(false);
+    window.location = "#";
   }
 
 
   return (
     <OrderProdDataContext.Provider value={{ orderProdData, setOrderProdData }}>
       <div
-        className="bg-slate-500/30 absolute top-0 left-0 right-0 bottom-0 p-8"
+        className="bg-slate-500/30 absolute top-0 left-0 right-0 bottom-[-800vh] h-100% p-8 z-50 prod-wrapper"
         onClick={closePage}
       >
-        <div className="bg-white p-4" onClick={(e) => e.stopPropagation()}>
+        <div className="bg-white p-4 overflow-y-scroll border-2  border-yellow" onClick={(e) => e.stopPropagation()}>
           <button
             className="rounded-full bg-blue text-white py-1 px-2"
             onClick={closePage}

@@ -19,7 +19,7 @@ function ProductGrid(props) {
         {showProd && <ProdPage prodId={prodId} {...props} setShowProd={setShowProd} />}
         {props.cat.map((cat, index) => 
         <div key={index} id={generateId(index)}>
-            <h2>{cat} </h2>
+            <h2 className="mt-16">{cat} </h2>
             <div className="flex flex-col gap-2" >{productsData.map((prod, i) => {
                 if(prod.productType === index + 1 ) {
                     return <ProductCard key={i} prod={prod} prodId={prodId} setProdId={setProdId}  setShowProd={setShowProd} />

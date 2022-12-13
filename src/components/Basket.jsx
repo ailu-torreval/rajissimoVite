@@ -27,7 +27,7 @@ function Basket(props) {
   }
 
   return (
-    <div className={props.class} >
+    <div id="basket" className={props.class} >
       <h4>Basket</h4>
       <div>
       {basket.map((prod, index) => <BasketProdCard key={index} prod={prod} action={()=> removeProd(prod.id)} checkout={false} />)}

@@ -122,6 +122,32 @@
   }
 }
 
+.wrapper {
+  width: 35vw;
+  /* position:float; */
+}
+
+.wrapper img {
+  width: 100%;
+  clip-path: url("#blob6");
+  position: relative;
+  z-index: 1;
+}
+
+.desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+          line-clamp: 3; 
+  -webkit-box-orient: vertical;
+}
+
+/* .prod-wrapper {
+  overflow: hidden;
+} */
+
+
 @media screen and (max-width: 640px) {
   .bg-box {
     background-image: url(./assets/box-mobile.svg);
@@ -129,6 +155,11 @@
     height: 550px;
     background-repeat: no-repeat;
     background-size: contain;
+  }
+
+  .wrapper {
+    width: 75vw;
+    /* position:float; */
   }
 }
 .asymbox {
