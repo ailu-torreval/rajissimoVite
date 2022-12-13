@@ -73,7 +73,7 @@ function ProdPage(props) {
               ))}
             </div>
           )}
-          <Controls {...props} optQty={prod[0].options.length} completeSel={completeSel} setCompleteSel={setCompleteSel} 
+          <Controls {...props} optQty={prod[0].options ? prod[0].options.length : 0} completeSel={completeSel} setCompleteSel={setCompleteSel} 
           />
         </div>
       </div>
