@@ -32,11 +32,14 @@ function Basket(props) {
       <div>
       {basket.map((prod, index) => <BasketProdCard key={index} prod={prod} action={()=> removeProd(prod.id)} checkout={false} />)}
       </div>
-      <div className="flex justify-between bg-lightyellow py-2 px-1 rounded">
-        <p className="font-header">Subtotal:</p>
+      <div className="flex justify-between text-blue bg-lightyellow py-2 my-4 px-1 rounded">
+        <p className="font-header tracking-wider ">Subtotal:</p>
         <p>{subTotal}kr. </p>
       </div>
+      <div className="flex justify-center">
+
       <Btn class="btn2" action={goToCheckout} content="Checkout ➔" />
+      </div>
     </div>
   )
 }
