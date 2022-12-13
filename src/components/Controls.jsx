@@ -10,14 +10,6 @@ function Controls(props) {
 
   const [counter, setCounter] = useState(1);
 
-
-  // function incrementQty() {
-  //   setCounter((old) => old + 1);
-  // }
-  // function decreaseQty() {
-  //   counter > 1 && setCounter((old) => old - 1);
-  // }
-
   function calcPrice() {
   return ( orderProdData.netPrice + orderProdData.extraPrice ) * counter;
   }
@@ -58,10 +50,6 @@ function Controls(props) {
       });
       props.setCompleteSel(true)
     }
-    // setOrderProdData({...orderProdData, qty: counter})
-    // console.log("all the magic happens here and IDFK how :/", orderProdData);
-    // props.setBasket((old)=> old.concat(orderProdData))
-    // props.setShowProd(false);
   }
 
 
