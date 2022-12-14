@@ -15,12 +15,12 @@ function AbUsPage() {
         <img
           src={img4}
           alt="blueline"
-          className="absolute -z-10 w-full top-0"
+          className="absolute -z-10 w-full top-0 2xl:hidden"
         ></img>
         <img
           src={img5}
           alt="orangeline"
-          className="absolute -z-10 w-full top-32 "
+          className="absolute -z-10 w-full top-32 2xl:hidden"
         ></img>
       </div>
       <h2 className="uppercase underline text-center pt-[40px] md:pt-[100px] sm:m-[40px] m-[20px]">
@@ -35,7 +35,7 @@ function AbUsPage() {
         contentClass="text-blue max-w-[618px]"
       />
       <Quote
-        class="text-header text-blue text-xl md:text-3xl max-w-6xl text-center m-auto font-bold text-center p-[40px]"
+        class="text-header text-blue text-xl md:text-3xl max-w-6xl text-center m-auto font-bold text-center p-[20px] sm:p-[40px] lg:p-[100px]"
         text="“My mother’s big dream was that one day I should have my own ice Store in Nyhavn, which I said was impossible.” - Nader Rajja, CEO"
       />
       <AboutUsSection
@@ -47,7 +47,7 @@ function AbUsPage() {
         contentClass="text-blue max-w-[618px]"
       />
       <Quote
-        class="text-header text-blue text-xl md:text-3xl max-w-6xl text-center m-auto font-bold p-[40px]"
+        class="text-header text-blue text-xl md:text-3xl max-w-6xl text-center m-auto font-bold p-[20px] sm:p-[40px] lg:p-[100px]"
         text="“I have travelled the world for the last 15 years learning from the best gelato, churros and dessert manufacturers and vendors and hired experts from all over the world.” - Nader Rajja, CEO."
       />
       <svg
@@ -56,7 +56,7 @@ function AbUsPage() {
         viewBox="0 0 1440 792"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full absolute -z-10 "
+        className="w-full h-full absolute -z-10 2xl:hidden"
       >
         <path
           d="M1615.74 789.727C1251.41 445.685 888.03 512.026 614.115 455.495C340.2 398.963 -282.704 -5.71379 -151.818 3.7499"
@@ -70,7 +70,7 @@ function AbUsPage() {
         viewBox="0 0 1440 979"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full absolute -z-10"
+        className="w-full absolute -z-10 2xl:hidden"
       >
         <path
           d="M1532.03 976.459C1406.09 796.743 758.333 651.87 475.066 525.237C191.799 398.603 -165.415 2.96127 -165.415 2.96127"

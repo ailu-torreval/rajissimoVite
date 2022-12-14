@@ -98,13 +98,14 @@ function CheckoutPage(props) {
   }
 
   return (
-    <section className="m-[20px] sm:m-[40px] lg:m-[100px] flex flex-col items-start">
+    <section className="m-[20px] sm:m-[40px] lg:m-[100px]">
       <button className="pb-[40px]" onClick={backToOrder}>
         {" "}
         ⇽ Back to Order
       </button>
+    <div className=" flex flex-col sm:items-center ">
       <h3 className="font-body pb-[20px] sm:pb-[40px]">Checkout</h3>
-      <section className="flex flex-col items-start pb-[20px] sm:pb-[40px]">
+      <section className="flex flex-col items-start p-4 mb-[20px] sm:mb-[40px] border boder-2 border-yellow rounded-[20px]">
         {!orderForm.isDelivery && (
           <div className="flex flex-col gap-2">
             <h4>Pick Up Details</h4>
@@ -119,7 +120,7 @@ function CheckoutPage(props) {
         {orderForm.isDelivery && (
           <>
             {haveAddress ? (
-              <div className="flex flex-col gap-2 mb-[20px] sm:mb-[40px]">
+              <div className="flex flex-col gap-2">
                 <h4>Delivery Details</h4>
                 <p className="font-semibold">Deliver to: </p>
                 <p className="capitalize">
@@ -131,7 +132,7 @@ function CheckoutPage(props) {
                 </p>
                 <Btn
                   content="Change Address"
-                  class="bg-lightyellow text-blue p-1 my-1  rounded-md font-bold  w-full"
+                  class="bg-lightyellow text-blue p-1 my-1 rounded-md font-bold  w-full"
                   action={() => setHaveAddress(false)}
                 />
               </div>
@@ -167,7 +168,7 @@ function CheckoutPage(props) {
                   </label>
                   <Btn
                     content="Add Address"
-                    class="bg-lightyellow text-blue p-1 my-1 rounded-md font-bold  w-full"
+                    class="bg-lightyellow text-blue p-1 my-1 rounded-md font-bold w-full"
                     action={(ev) => addAddress(ev)}
                   />
                 </form>
@@ -419,6 +420,7 @@ function CheckoutPage(props) {
           />
         </form>
       </section>
+    </div>
     </section>
   );
 }

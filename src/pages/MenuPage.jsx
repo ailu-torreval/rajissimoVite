@@ -29,12 +29,12 @@ function MenuPage() {
         <img
           src={img1}
           alt="blueline"
-          className="absolute -z-10 w-full top-92"
+          className="absolute -z-10 w-full top-92 2xl:hidden"
         ></img>
         <img
           src={img2}
           alt="orangeline"
-          className="absolute -z-10 w-full top-36"
+          className="absolute -z-10 w-full top-36 2xl:hidden"
         ></img>
       </div>
 
