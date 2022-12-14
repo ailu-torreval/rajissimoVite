@@ -13,7 +13,7 @@ function SubsPage() {
       <SubscriptionTextBox
         class="flex flex-col items-start gap-4 justify-center md:p-[100px] sm:p-[40px] p-[20px]"
         title="Take a look inside"
-        description="Every month we select an assortment of new and well known products to put into our Treatsboxes. Our Regular size box contains an assortment of 8 – 10 products. Our products are freshly made and you are never full enough when it comes to them! Every month you will be delighted with our churros, waffles and gelato, different combined in innovative ways!"
+        description="Every month we select an assortment of new and well known products to put into our Treatsboxes. Our Regular size box contains an assortment of 3 – 5 products. Our products are freshly made and you are never full enough when it comes to them! Every month you will be delighted with our churros, waffles and gelato, different combined in innovative ways!"
         caption="*The cost of shipment is not included"
         captionclass="text-xs"
       />
