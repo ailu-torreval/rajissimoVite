@@ -114,7 +114,7 @@ function Footer(props) {
               link1action={goToMenu}
               link2="Locations"
               link2action={goToAbUs}
-              link3="Subscription Card"
+              link3="Subscription Box"
               link3action={goToSubsPage}
             />
             <Links
@@ -127,9 +127,9 @@ function Footer(props) {
           </div>
         </div>
         <div className="flex flex-col gap-4 justify-between border-solid border-t-2 border-top border-[#FCAF3E] pt-4 md:flex-row">
-          <div className="order-1 md:order-none">
+          <div className="order-1 md:order-none flex flex-col items-start gap-2 justify-center">
             <p className="text-blue">All rights reserved © 2022</p>
-            <p className="text-blue text-xs">
+            <p className="text-blue text-xs font-semibold ">
               This project was created by Ailin, Marina & Melania as a part of
               our exam project at Kea.
             </p>

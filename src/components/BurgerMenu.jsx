@@ -8,45 +8,49 @@ import ControlPanel from "./ControlPanel";
 function BurgerMenu(props) {
   const { isLogin, setIsLogin } = useContext(LoginContext);
   const { page, setPage } = useContext(PageContext);
-  const [ cat, setCat ] = useState([ "Combos", "Churros & Waffles", "Gelato", "Drinks" ]);
+  const [cat, setCat] = useState([
+    "Combos",
+    "Churros & Waffles",
+    "Gelato",
+    "Drinks",
+  ]);
 
-
-  
   function goToHome() {
     isLogin === true && setIsLogin(false);
     props.setShowBurgerMenu(false);
     setPage("homePage");
-    window.location = '#';
+    window.location = "#";
   }
 
   function goToMenuPage() {
     isLogin === true && setIsLogin(false);
     props.setShowBurgerMenu(false);
     setPage("menuPage");
-    window.location = '#';
-
+    window.location = "#";
   }
 
   function goToAboutUs() {
     isLogin === true && setIsLogin(false);
     props.setShowBurgerMenu(false);
     setPage("abUsPage");
-    window.location = '#';
-
+    window.location = "#";
   }
 
   function goToOrderApp() {
     props.setShowBurgerMenu(false);
     setIsLogin(true);
-    setPage('landingPage');
-    window.location = '#';
-
+    setPage("landingPage");
+    window.location = "#";
   }
 
   return (
     <div className="flex flex-col h-screen w-full gap-y-6 font-body mt-36 md:hidden text-darkyellow text-lg">
       {isLogin ? (
-        <ControlPanel showBurger={props.showBurgerMenu} setShowBurger={props.setShowBurgerMenu} cat={cat} />
+        <ControlPanel
+          showBurger={props.showBurgerMenu}
+          setShowBurger={props.setShowBurgerMenu}
+          cat={cat}
+        />
       ) : (
         <>
           <BtnGrid
@@ -57,7 +61,7 @@ function BurgerMenu(props) {
             btn2action={goToMenuPage}
             btn2content="Menu"
             btn2class="btn3"
-            btn3content="Find Us"
+            btn3content="About Us"
             btn3action={goToAboutUs}
             btn3class="btn3"
           />

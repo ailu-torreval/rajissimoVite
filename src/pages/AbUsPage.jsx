@@ -4,39 +4,25 @@ import img from "../assets/nyhavn.png";
 import img2 from "../assets/nyhavn-christmas.png";
 import img3 from "../assets/all-products.png";
 import Quote from "../components/Quote";
+import img4 from "../assets/blueline2.png";
+import img5 from "../assets/orangeline2.png";
 import LocationsSection from "../sections/LocationsSection";
 
 function AbUsPage() {
   return (
     <div>
-      <svg
-        width="1440"
-        height="792"
-        viewBox="0 0 1440 792"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full absolute -z-10"
-      >
-        <path
-          d="M1615.74 789.727C1251.41 445.685 888.03 512.026 614.115 455.495C340.2 398.963 -282.704 -5.71379 -151.818 3.7499"
-          stroke="#00B7B4"
-          strokeWidth="6"
-        />
-      </svg>
-      <svg
-        width="1440"
-        height="979"
-        viewBox="0 0 1440 979"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full absolute -z-10 top-4 md:top-36"
-      >
-        <path
-          d="M1532.03 976.459C1406.09 796.743 758.333 651.87 475.066 525.237C191.799 398.603 -165.415 2.96127 -165.415 2.96127"
-          stroke="#FAAF3D"
-          strokeWidth="6"
-        />
-      </svg>
+      <div className="relative">
+        <img
+          src={img4}
+          alt="blueline"
+          className="absolute -z-10 w-full top-0"
+        ></img>
+        <img
+          src={img5}
+          alt="orangeline"
+          className="absolute -z-10 w-full top-32 "
+        ></img>
+      </div>
       <h2 className="uppercase underline text-center pt-[40px] md:pt-[100px] sm:m-[40px] m-[20px]">
         How it all started
       </h2>
