@@ -42,11 +42,11 @@ function YourOrder(props) {
 
 
   return (
-    <>
+    <div className='lg:px-[100px] sm:px-[40px] px-[20px]'>
     <button className='px-2' onClick={backToMenu}> ⇽ Back to Menu Page</button>
     <section className='px-4' >
-    <h3 className="font-body">Your Order</h3>
-    <div className="flex justify-center flex-col md:w-[80vw] items-center gap-2 md:gap-6 md:m-auto my-4">
+    <h3 className="font-body my-[40px]">Your Order</h3>
+    <div className="flex justify-center flex-col md:w-[80vw] items-center gap-2 md:gap-6  my-4">
       {basket.length < 1 && <p className="bg-lightyellow text-center p-4 text-lg w-full h-[20vh] rounded-lg" >No products on your order yet.</p>}
     {basket.map((prod, index) => <BasketProdCard key={index} prod={prod} action={()=> removeProd(prod.id)} checkout={true} />)}
     </div>
@@ -62,7 +62,7 @@ function YourOrder(props) {
   <div className="flex justify-center my-6">
   <Btn class="btn2" action={goToCheckout} content="Checkout ➔" />
   </div>
-    </>
+    </div>
   )
 }
 
