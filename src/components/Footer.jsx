@@ -127,13 +127,11 @@ function Footer(props) {
           </div>
         </div>
         <div className="flex flex-col gap-4 justify-between border-solid border-t-2 border-top border-[#FCAF3E] pt-4 md:flex-row">
-          <div>
-            <p className="text-blue order-1 md:order-none">
-              All rights reserved © 2022
-            </p>
+          <div className="order-1 md:order-none">
+            <p className="text-blue">All rights reserved © 2022</p>
             <p className="text-blue text-xs">
-              This project was created by Ailin, Marina & Melania as a part of our exam project
-              at Kea.
+              This project was created by Ailin, Marina & Melania as a part of
+              our exam project at Kea.
             </p>
           </div>
           <ul className="flex">

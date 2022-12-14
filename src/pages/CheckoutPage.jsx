@@ -411,7 +411,7 @@ function CheckoutPage(props) {
               )}
             </label>
           </div>
-          <Summary class="py-[20px] sm:py-[40px]" />
+          <Summary class="py-[20px] sm:py-[40px] max-w-[250px]" />
           <Btn
             class="btn2"
             content="Place Order ➔"
