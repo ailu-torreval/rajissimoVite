@@ -179,13 +179,13 @@ function CheckoutPage(props) {
         {orderForm.isDelivery ? (
           <Btn
             content="Change for Pickup"
-            class="btn1 self-start"
+            class="btn1 self-start mt-2"
             action={changeDelivery}
           />
         ) : (
           <Btn
             content="Change for Delivery"
-            class="btn1 self-start"
+            class="btn1 self-start mt-2"
             action={changeDelivery}
           />
         )}
@@ -215,7 +215,7 @@ function CheckoutPage(props) {
               />
               {isValid && (
                 <span>
-                  {!nameChecked && <span>Please add a valid name</span>}
+                  {!nameChecked && <span className="text-[#FF4F3A] text-xs italic ml-2">Please add a valid name</span>}
                 </span>
               )}
             </label>
@@ -240,7 +240,7 @@ function CheckoutPage(props) {
               {isValid && (
                 <span>
                   {!lastNameChecked && (
-                    <span>Please add a valid last name</span>
+                    <span className="text-[#FF4F3A] text-xs italic ml-2">Please add a valid last name</span>
                   )}
                 </span>
               )}
@@ -267,7 +267,7 @@ function CheckoutPage(props) {
               />
               {isValid && (
                 <span>
-                  {!phoneChecked && <span>Please add a valid phone nr.</span>}
+                  {!phoneChecked && <span className="text-[#FF4F3A] text-xs italic ml-2">Please add a valid phone nr.</span>}
                 </span>
               )}
             </label>
@@ -291,7 +291,7 @@ function CheckoutPage(props) {
               />
               {isValid && (
                 <span>
-                  {!mailChecked && <span>Please add a valid email</span>}
+                  {!mailChecked && <span className="text-[#FF4F3A] text-xs italic ml-2">Please add a valid email</span>}
                 </span>
               )}
             </label>
@@ -319,7 +319,7 @@ function CheckoutPage(props) {
               {isValid && (
                 <span>
                   {!cardChecked && (
-                    <span>Please add a valid credit card number</span>
+                    <span className="text-[#FF4F3A] text-xs italic ml-2">Please add a valid credit card number</span>
                   )}
                 </span>
               )}
@@ -341,13 +341,13 @@ function CheckoutPage(props) {
               />
               {isValid && (
                 <span>
-                  {!cardNameChecked && <span>Please add a valid name</span>}
+                  {!cardNameChecked && <span className="text-[#FF4F3A] text-xs italic ml-2">Please add a valid name</span>}
                 </span>
               )}
             </label>
           </div>
           <div className="flex flex-col sm:justify-between sm:flex-row gap-4 md:gap-12">
-            <label className="flex flex-col gap-2">
+            <label className="flex flex-col gap-2 mt-4">
               <p>Expiration Date</p>
               <div className="flex justify-between items-start gap-4">
                 <select
@@ -390,7 +390,7 @@ function CheckoutPage(props) {
                 </select>
               </div>
             </label>
-            <label className="flex flex-col gap-2">
+            <label className="flex flex-col mt-4">
               <p>CVC</p>
               <input
                 onKeyDown={(ev) => {
@@ -406,7 +406,7 @@ function CheckoutPage(props) {
               />
               {isValid && (
                 <span>
-                  {!cvcChecked && <span>Please add a valid security code</span>}
+                  {!cvcChecked && <span className="text-[#FF4F3A] text-xs italic ml-2">Please add a valid security code</span>}
                 </span>
               )}
             </label>

@@ -26,7 +26,7 @@ function SubmitOrder() {
   return (
     <div className="bg-box flex justify-center items-center">
       {isProcessed ? (
-        <div className="bg-white rounded-[20px] h-2/4  flex flex-col justify-center items-center w-min md:w-5/6 md:h-4/6">
+        <div className="bg-white rounded-[20px] flex flex-col justify-center items-center max-w-[220px] p-2 text-center sm:max-w-[450px] sm:p-4 md:max-w-[888px] md:p-8 lg:p-12">
           <h2>Transaction Completed!</h2>
           {orderForm.isDelivery ? 
         (<p>Your food is on the way</p>) :
