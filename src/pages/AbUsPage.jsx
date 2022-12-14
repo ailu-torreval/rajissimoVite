@@ -35,7 +35,7 @@ function AbUsPage() {
         contentClass="text-blue max-w-[618px]"
       />
       <Quote
-        class="text-header text-blue text-2xl md:text-3xl max-w-6xl text-center m-auto font-bold text-center p-[40px]"
+        class="text-header text-blue text-xl md:text-3xl max-w-6xl text-center m-auto font-bold text-center p-[40px]"
         text="“My mother’s big dream was that one day I should have my own ice Store in Nyhavn, which I said was impossible.” - Nader Rajja, CEO"
       />
       <AboutUsSection
@@ -47,7 +47,7 @@ function AbUsPage() {
         contentClass="text-blue max-w-[618px]"
       />
       <Quote
-        class="text-header text-blue text-2xl md:text-3xl max-w-6xl text-center m-auto font-bold p-[40px]"
+        class="text-header text-blue text-xl md:text-3xl max-w-6xl text-center m-auto font-bold p-[40px]"
         text="“I have travelled the world for the last 15 years learning from the best gelato, churros and dessert manufacturers and vendors and hired experts from all over the world.” - Nader Rajja, CEO."
       />
       <svg
@@ -95,7 +95,7 @@ function AbUsPage() {
       <AboutUsSection
         img={img3}
         title="RAJISSIMO FOR EVERYONE"
-        class="flex flex-col items-center md:flex-row justify-center sm:gap-x-8 md:gap-x-16 lg:gap-x-24 lg:m-[100px] sm:m-[40px] m-[20px]"
+        class="flex flex-col items-center md:flex-row justify-center sm:gap-x-8 md:gap-x-16 lg:gap-x-24 lg:m-[100px] sm:m-[40px] m-[20px] pt-[20px]"
         content="Our gelatos are always fresh, produced same day in our fabbrica di gelato. We have a six-hour policy on our churros dough to ensure it is nice and fresh. Daily oil change ensures our churros are crunchy on the outside and mushy n’ tender inside and have the perfect golden trademark colour that only Rajissimo churros have.
         "
         contentClass="text-blue max-w-[618px]"
