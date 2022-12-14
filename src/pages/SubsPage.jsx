@@ -34,7 +34,7 @@ function SubsPage() {
         caption="Our subscriptions automatically renew every month with no long-term contracts and you can cancel at any time.
         "
       />
-      <SubscriptionFormSection class="flex flex-col items-start gap-4 justify-center mx-8 my-2 md:pb-[100px] pb-[40px] md:items-center" />
+      <SubscriptionFormSection class="flex flex-col items-start gap-4 justify-center my-2 md:p-[100px] sm:p-[40px] p-[20px] md:items-center" />
     </div>
   );
 }
