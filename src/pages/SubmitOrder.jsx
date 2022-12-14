@@ -11,12 +11,12 @@ function SubmitOrder() {
   const { page, setPage } = useContext(PageContext)
   const [isProcessed, setIsProcessed] = useState(false);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsProcessed(true);
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsProcessed(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   function goToHomepage() {
     setIsLogin(false);
