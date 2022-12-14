@@ -5,14 +5,14 @@ function AddressInputArea(props) {
   const { orderForm, setOrderForm } = useContext(OrderContext);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col items-start gap-4">
       {props.addressAlert && (
         <span className="text-red-500">Please add a valid address.</span>
       )}
-      <label className="flex items-center justify-between gap-1 sm:gap-2">
+      <label className="flex items-center gap-1 sm:gap-2">
         Street & nr.
         <input
-          className="field grow"
+          className="field"
           onKeyDown={(ev) => {
             if (ev.target.value.length <= 0) {
               props.setAddressAlert(true);
@@ -28,11 +28,11 @@ function AddressInputArea(props) {
           placeholder="Type your address here..."
         />
       </label>
-      <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between">
         <label className="basis-1/2 flex items-center justify-between grow w-full">
           Zip Code
           <input
-            className="field mx-1 sm:mx-2 "
+            className="field mx-1 sm:mx-2 sm:ml-6 "
             onKeyDown={(ev) => {
               if (ev.target.value.length <= 0) {
                 props.setAddressAlert(true);
@@ -48,7 +48,7 @@ function AddressInputArea(props) {
             placeholder="zip code"
           />
         </label>
-        <label>
+        <label className="ml-8">
           City
           <select name="city">
             <option>Copenhagen</option>

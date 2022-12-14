@@ -11,34 +11,29 @@ function Footer(props) {
   function goToHomePage() {
     setIsLogin(false);
     setPage("homePage");
-    window.location = '#';
-
+    window.location = "#";
   }
 
   function goToOrderApp() {
     setIsLogin(true);
     setPage("landingPage");
-    window.location = '#';
-
+    window.location = "#";
   }
 
   function goToMenu() {
     setIsLogin(false);
     setPage("menuPage");
-    window.location = '#';
-
+    window.location = "#";
   }
   function goToAbUs() {
     setIsLogin(false);
     setPage("abUsPage");
-    window.location = '#';
-
+    window.location = "#";
   }
   function goToSubsPage() {
     setIsLogin(false);
     setPage("subsPage");
-    window.location = '#';
-
+    window.location = "#";
   }
 
   function goTo() {
@@ -46,9 +41,9 @@ function Footer(props) {
   }
 
   return (
-    <footer >
+    <footer>
       <img src={wave} alt="wave" className="w-full h-full"></img>
-      <div className="px-4 md:px-16 pt-16 md:pb-4 bg-[#FEE3BB] flex flex-col">
+      <div className="lg:px-[100px] sm:px-[40px] px-[20px] pt-0 bg-[#FEE3BB] flex flex-col">
         <div className="flex flex-col justify-between md:flex-row md:mb-8">
           <ul className="mb-4">
             {isLogin ? (
@@ -132,9 +127,15 @@ function Footer(props) {
           </div>
         </div>
         <div className="flex flex-col gap-4 justify-between border-solid border-t-2 border-top border-[#FCAF3E] pt-4 md:flex-row">
-          <p className="text-blue order-1 md:order-none">
-            All rights reserved © 2022
-          </p>
+          <div>
+            <p className="text-blue order-1 md:order-none">
+              All rights reserved © 2022
+            </p>
+            <p className="text-blue text-xs">
+              This project was created by Ailin, Marina & Melania as a part of our exam project
+              at Kea.
+            </p>
+          </div>
           <ul className="flex">
             <li>
               <svg
