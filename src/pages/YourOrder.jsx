@@ -46,8 +46,8 @@ function YourOrder(props) {
     <button onClick={backToMenu}> ⇽ Back to Menu Page</button>
     <section>
     <h3 className="font-body">Your Order</h3>
-    <div>
-      {basket.length < 1 && <p>No product on your order yet.</p>}
+    <div className="flex justify-center items-center gap-2 my-4 px-4">
+      {basket.length < 1 && <p className="bg-lightyellow text-center p-4 text-lg w-full h-[20vh] rounded-lg" >No products on your order yet.</p>}
     {basket.map((prod, index) => <BasketProdCard key={index} prod={prod} action={()=> removeProd(prod.id)} checkout={true} />)}
     </div>
   </section>

@@ -180,18 +180,20 @@ function Option({ id, option, completeSel }) {
 
 
   return (
-      <div id={generateId()} className="px-4 mb-8">
+      <div id={generateId()} className="px-4 mb-8 md:mb-16">
         <h4>{option.optName}</h4>
         {completeSel && (
           <span className="text-darkyellow">
             Please complete your selection
           </span>
         )}
-        {option.optDesc && <p className="mb-2 capitalize">{option.optDesc}</p>}
-        {option.optSubDesc && <p className="mb-2 capitalize">{option.optSubDesc}</p>}
-        <div className="flex">
+        {option.optDesc && <p className="mb-2 md:mb-8 capitalize">{option.optDesc}</p>}
+        {option.optSubDesc && <p className="mb-2 md:mb-8 capitalize">{option.optSubDesc}</p>}
+        <div className="flex md:justify-evenly md:px-4 md:items-center">
           {option.illustration && (
-            <img className="hidden md:block" src={dummyImg} alt="product illustration" />
+            <div className="hidden md:block w-[30%]">
+              <img className="" src={dummyImg} alt="product illustration" />
+            </div>
           )}
           <div className="flex flex-col ml-6">
             {option.selectOpt &&
