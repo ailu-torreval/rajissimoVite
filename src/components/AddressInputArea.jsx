@@ -7,7 +7,9 @@ function AddressInputArea(props) {
   return (
     <div className="flex flex-col items-start gap-4">
       {props.addressAlert && (
-        <span className="text-red-500">Please add a valid address.</span>
+        <span className="text-[#FF4F3A] text-xs italic ml-2">
+          Please add a valid address.
+        </span>
       )}
       <label className="flex items-center gap-1 sm:gap-2">
         Street & nr.
