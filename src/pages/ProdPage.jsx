@@ -46,10 +46,7 @@ function ProdPage(props) {
           </div>
           <div className="px-2">
           <div className="flex justify-around mt-2 p-2">
-            <h3>{prod[0].name}</h3>
-            {prod[0].dietOpt == "v" && (
-              <img src={vegan} alt="vegan icon" width="39" />
-            )}
+            <h3>{prod[0].name} {prod[0].dietOpt == "v" && <span>🍃 </span> } </h3>
           </div>
           <div className="flex items-center mb-6 flex-col p-2">
             <p>{prod[0].desc}</p>
