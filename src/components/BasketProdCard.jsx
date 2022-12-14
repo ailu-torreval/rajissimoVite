@@ -4,7 +4,9 @@ function BasketProdCard(props) {
 
 
   return (
-    <>
+    <div className={props.checkout ? 'flex flex-col md:flex-row-reverse md:justify-between md:gap-6 md:w-full md:normal' : ''}>
+
+    {props.checkout && <div className='md:w-[30vw]'> <img className='rounded-xl mb-2' src={props.prod.imgSrc} alt="" /> </div>}   
     <div className="mb-2">
       <p className="font-header text-blue tracking-wider text-lg capitalize"> <span className="text-darkyellow font-body" >{props.prod.qty}x</span> {props.prod.prod} </p>
       <div>
@@ -15,8 +17,7 @@ function BasketProdCard(props) {
           <p className="font-semibold text-left">{props.prod.totalProdAmount} kr. </p>
         </div>
     </div>
-    {props.checkout &&  <img src={props.prod.imgSrc} alt="" /> }   
-    </>
+    </div>
   )
 }
 

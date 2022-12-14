@@ -23,7 +23,7 @@ function CTA(props) {
           a 37,37 0 1,1 -74,0"
           />
         </defs>
-        <text fontSize="9.4" color="#104057">
+        <text fontSize="9.4" fill="#104057">
           <textPath xlinkHref="#circle">
             Order Online · Order Online · Order Online ·
           </textPath>

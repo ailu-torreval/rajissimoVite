@@ -7,7 +7,7 @@ function Recomendations() {
   const { productsData, setProductsData } = useContext(OrderProductsContext);
   const {basket, setBasket} = useContext(BasketContext)
 
-  function handleCheckbox(prod) {
+  function handleProd(prod) {
     const basketProd = {
       id: Math.floor(Math.random() * 200) + 1,
       prodId: prod.id,
@@ -28,17 +28,19 @@ function Recomendations() {
   }
 
   return (
-    <div>
-      <h3>Recomendations</h3>
+    <div className='px-4 my-8'>
+      <h3 className='mb-4'>Recomendations</h3>
+      <div className='flex flex-col gap-4 md:flex-row justify-center items-center'>
       {productsData.map((prod) => prod.isSuggested && 
-      <button key={prod.id} onClick={()=> handleCheckbox(prod)} >
-        <img src={prod.imgSrc} alt={prod.name} width='300'/>
-        <div>
-          <p className="capitalize">{prod.name}</p>
+      <button  key={prod.id} onClick={()=> handleProd(prod)} >
+        <img className='rounded-xl' src={prod.imgSrc} alt={prod.name} width='300'/>
+        <div className='mt-2 text-left'>
+          <p className="capitalize font-bold">{prod.name}</p>
           <p>{prod.price} kr.</p>
         </div>
       </button>
       )}
+      </div>
 
       </div>
   )
