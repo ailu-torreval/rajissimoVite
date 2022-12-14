@@ -52,7 +52,7 @@ function AddressInputArea(props) {
         </label>
         <label className="ml-8">
           City
-          <select name="city">
+          <select name="city" className="ml-2">
             <option>Copenhagen</option>
           </select>
         </label>

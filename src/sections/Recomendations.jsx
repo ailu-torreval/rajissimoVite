@@ -29,7 +29,7 @@ function Recomendations() {
 
   return (
     <div className='py-[20px] sm:py-[40px] lg:py-[100px]'>
-      <h3 className='mb-[40px]'>Recomendations</h3>
+      <h3 className='mb-[40px]'>Recommendations</h3>
       <div className='flex flex-col gap-4 md:flex-row justify-center items-center'>
       {productsData.map((prod) => prod.isSuggested && 
       <button  key={prod.id} onClick={()=> handleProd(prod)} >
