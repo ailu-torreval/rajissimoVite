@@ -23,8 +23,11 @@
   p {
     @apply text-sm lg:text-base font-body;
   }
+  select{
+    @apply text-sm lg:text-base font-body pt-2;
+  }
   .field {
-    @apply border border-2 border-blue rounded-[14px] p-2 text-xs;
+    @apply border border-2 border-blue rounded-[14px] p-2 text-xs max-w-[324px] sm:w-[280px] md:w-[324px] ;
   }
 }
 

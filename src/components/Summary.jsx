@@ -10,29 +10,37 @@ function Summary(props) {
     (accumulator, currentValue) => accumulator + currentValue.totalProdAmount,
     0
   );
-  
+
   return (
     <div className={props.class}>
-      <h3>Summary</h3>
-      <p>
-        Subtotal: <span>{subTotal} kr.</span>
+      <h3 className="my-[20px]">Summary</h3>
+      <p className="font-bold flex justify-between">
+        Subtotal: <span className="font-light">{subTotal} kr.</span>
       </p>
       {orderForm.isDelivery ? (
-        <p>
-          Delivery Fee: <span>{orderForm.deliveryFee} kr.</span>
+        <p className="font-bold flex justify-between">
+          Delivery Fee:{" "}
+          <span className="font-light">{orderForm.deliveryFee} kr.</span>
         </p>
       ) : (
-        <p>
-          Service Fee: <span>{orderForm.serviceFee} kr.</span>
+        <p className="font-bold flex justify-between">
+          Service Fee:{" "}
+          <span className="font-light">{orderForm.serviceFee} kr.</span>
         </p>
       )}
       {orderForm.isDelivery ? (
-        <p>
-          Total: <span>{subTotal + orderForm.deliveryFee} kr.</span>{" "}
+        <p className="font-bold flex justify-between">
+          Total:{" "}
+          <span className="font-light">
+            {subTotal + orderForm.deliveryFee} kr.
+          </span>{" "}
         </p>
       ) : (
-        <p>
-          Total: <span>{subTotal + orderForm.serviceFee} kr.</span>{" "}
+        <p className="font-bold flex justify-between">
+          Total:{" "}
+          <span className="font-light">
+            {subTotal + orderForm.serviceFee} kr.
+          </span>{" "}
         </p>
       )}
     </div>
