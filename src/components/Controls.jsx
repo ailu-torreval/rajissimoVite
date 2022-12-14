@@ -23,6 +23,7 @@ function Controls(props) {
     if(orderProdData.preferences == undefined) {
       //product has no options, just send it to basket
       props.setShowProd(false);
+      window.location = "#";
       setOrderProdData((prevState) => prevState.qty = counter)
       setOrderProdData(orderProdData.totalProdAmount = total)
       console.log(total);
@@ -35,6 +36,7 @@ function Controls(props) {
       setOrderProdData(orderProdData.totalProdAmount = total)
       console.log(total);
       props.setShowProd(false);
+      window.location = "#";
       // setOrderProdData({...orderProdData, qty: counter, totalProdAmount: ( orderProdData.netPrice + orderProdData.extraPrice ) * counter})
       console.log("all the options are selected", orderProdData);
       setBasket((old)=> old.concat(orderProdData))

@@ -191,7 +191,7 @@ function Option({ id, option, completeSel }) {
         {option.optSubDesc && <p className="mb-2 md:mb-8 capitalize">{option.optSubDesc}</p>}
         <div className="flex md:justify-evenly md:px-4 md:items-center">
           {option.illustration && (
-            <div className="hidden md:block w-[40%]">
+            <div className="hidden md:block w-[30%]">
               <img className="" src={dummyImg} alt="product illustration" />
             </div>
           )}

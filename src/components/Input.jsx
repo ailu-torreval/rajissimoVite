@@ -13,7 +13,7 @@ function Input(props) {
           className="field"
         ></input>
         {props.isValid && (
-          <span>{!props.state && <span> {props.alert}</span>}</span>
+          <span>{!props.state && <span className="text-[#FF4F3A] text-xs ml-2 italic"> {props.alert}</span>}</span>
         )}
       </label>
     </div>
