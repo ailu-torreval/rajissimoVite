@@ -198,7 +198,7 @@ function CheckoutPage(props) {
             <label className="flex flex-col">
               <p>First Name</p>
               <input
-                onKeyDown={(ev) => {
+                onChange={(ev) => {
                   if (ev.target.value.length <= 0) {
                     setNameChecked(false);
                   } else {
@@ -222,7 +222,7 @@ function CheckoutPage(props) {
             <label className="flex flex-col">
               <p>Last Name</p>
               <input
-                onKeyDown={(ev) => {
+                onChange={(ev) => {
                   if (ev.target.value.length <= 0) {
                     setLastNameChecked(false);
                   } else {
@@ -250,7 +250,7 @@ function CheckoutPage(props) {
             <label className="flex flex-col">
               <p>Phone Nr.</p>
               <input
-                onKeyDown={(ev) => {
+                onChange={(ev) => {
                   if (isNaN(ev.target.value)) {
                     setPhoneChecked(false);
                   } else {
@@ -274,7 +274,7 @@ function CheckoutPage(props) {
             <label className="flex flex-col ">
               <p>Email</p>
               <input
-                onKeyDown={(ev) => {
+                onChange={(ev) => {
                   if (!ev.target.value.includes("@")) {
                     setMailChecked(false);
                   } else {
@@ -305,7 +305,7 @@ function CheckoutPage(props) {
             <label className="flex flex-col justify-center">
               <p>Card Number</p>
               <input
-                onKeyDown={(ev) => {
+                onChange={(ev) => {
                   if (ev.target.value.length <= 15 && isNaN(ev.target.value)) {
                     setCardChecked(false);
                   } else {
@@ -328,7 +328,7 @@ function CheckoutPage(props) {
             <label className="flex flex-col my-4">
               <p>Card Holder Name</p>
               <input
-                onKeyDown={(ev) => {
+                onChange={(ev) => {
                   if (ev.target.value.length <= 0) {
                     setCardNameChecked(false);
                   } else {
