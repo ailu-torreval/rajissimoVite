@@ -43,23 +43,23 @@ function YourOrder(props) {
 
   return (
     <>
-    <button onClick={backToMenu}> ⇽ Back to Menu Page</button>
-    <section>
+    <button className='px-2' onClick={backToMenu}> ⇽ Back to Menu Page</button>
+    <section className='px-4' >
     <h3 className="font-body">Your Order</h3>
-    <div className="flex justify-center items-center gap-2 my-4 px-4">
+    <div className="flex justify-center flex-col md:w-[80vw] items-center gap-2 md:gap-6 md:m-auto my-4">
       {basket.length < 1 && <p className="bg-lightyellow text-center p-4 text-lg w-full h-[20vh] rounded-lg" >No products on your order yet.</p>}
     {basket.map((prod, index) => <BasketProdCard key={index} prod={prod} action={()=> removeProd(prod.id)} checkout={true} />)}
     </div>
   </section>
   <Recomendations />
-  <div>
-  <h3 className="font-body">Add coment for the venue</h3>
+  <div className='px-4'>
+  <h5 className="font-header ">Add coment for the venue</h5>
   <p>Special requests, allergies, dietary restrictions...</p>
-  <input onKeyDown={(ev)=> addMsg(ev)}        type="text"
+  <textarea rows={4} className='field mt-2 resize-none' onKeyDown={(ev)=> addMsg(ev)}        type="text"
         placeholder="Your message here..." />
   </div>
-  <Summary class=""/>
-  <div className="flex flex-center">
+  <Summary class="py-[20px] sm:py-[40px] max-w-[250px] mx-4" />
+  <div className="flex justify-center my-6">
   <Btn class="btn2" action={goToCheckout} content="Checkout ➔" />
   </div>
     </>
