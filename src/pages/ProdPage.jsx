@@ -34,7 +34,7 @@ function ProdPage(props) {
         className="bg-slate-500/30 absolute top-0 left-0 right-0 bottom-[-800vh] h-100% p-8 z-50 prod-wrapper flex justify-center"
         onClick={closePage}
       >
-        <div className="bg-white md:w-[60vw] overflow-y-scroll border-2  border-yellow rounded-[35px] h-min relative" onClick={(e) => e.stopPropagation()}>
+        <div className="bg-white md:w-[60vw] overflow-hidden 2xl:w-[40vw] border-2  border-yellow rounded-[35px] h-min relative" onClick={(e) => e.stopPropagation()}>
           <button
             className="rounded-full bg-blue text-white align-center px-2 pb-1 rotate-45 right-4 top-4  font-bold absolute "
             onClick={closePage}

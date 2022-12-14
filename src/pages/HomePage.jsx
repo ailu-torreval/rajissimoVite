@@ -47,6 +47,7 @@ function HomePage() {
       />
       <Section
         img={img2}
+        abus={true}
         class="flex flex-col md:flex-row-reverse gap-y-8 md:gap-x-8 justify-center lg:gap-x-24 lg:m-[100px] m-[40px] lg:mt-[140px]"
         title="FROM THE SCRATCH…
         AS WELL AS EVERYDAY"
