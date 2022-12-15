@@ -20,6 +20,11 @@ function CheckoutPage(props) {
   const [cvcChecked, setCvcChecked] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [addValid, setAddValid] = useState(false);
+  const [dscValid, setDscValid]= useState(false);
+  const [codeAdded, setCodeAdded] = useState(false)
+  const [code, setCode ] = useState()
+
+  const validCodes = ["NEWAPP-2023", "XXXXX", "ailin"];
 
   function backToOrder() {
     props.setStep("your-order");
@@ -94,6 +99,23 @@ function CheckoutPage(props) {
     } else {
       //form invalid, show alerts
       setIsValid(true);
+    }
+  }
+
+  function checkCode() {
+    // const [dscValid, setDscValid]= useState(false);
+    // const [codeAdded, setCodeAdded] = useState(false)
+    // const [code, setCode ] = useState()
+    if(dscValid) {
+    } else {
+      if(validCodes.includes(code)) {
+        setDscValid(true);
+        setCodeAdded(true)
+        console.log("valid code");
+      } else {
+        setCodeAdded(true)
+      }
+
     }
   }
 
@@ -412,7 +434,30 @@ function CheckoutPage(props) {
               )}
             </label>
           </div>
-          <Summary class="py-[20px] sm:py-[40px] max-w-[250px]" />
+          <section className="py-[20px] sm:py-[40px] flex flex-col gap-6 ">
+        <h4 className="capitalize mt-8" >Discount Code</h4>
+ 
+ <div className="flex flex-col md:flex-row justify-around items-center">
+ <div>
+ <input
+              onChange={(ev) => setCode(ev.target.value)}
+                className="field"
+                type="text"
+                placeholder="enter code here..."
+              />
+              {codeAdded && (
+                <p className="text-xs" >
+                  {dscValid ? <span className="text-green-400 text-xs italic ml-2">Discount Aplied.</span> : <span className="text-[#FF4F3A] text-xs italic ml-2">Sorry, Incorrect or expired code.</span>}
+                </p>
+              )}
+ </div>
+ <button type="button" className="btn1" onClick={checkCode}>Validate</button>
+
+ </div>
+ 
+             
+        </section>
+          <Summary dscValid={dscValid} class="py-[20px] sm:py-[40px] max-w-[250px]" />
           <Btn
             class="btn2"
             content="Place Order ➔"
@@ -420,6 +465,7 @@ function CheckoutPage(props) {
           />
         </form>
       </section>
+
     </div>
     </section>
   );

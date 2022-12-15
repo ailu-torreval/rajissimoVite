@@ -58,7 +58,7 @@ function YourOrder(props) {
   <textarea rows={4} className='field mt-2 resize-none' onChange={(ev)=> addMsg(ev)}        type="text"
         placeholder="Your message here..." />
   </div>
-  <Summary class="py-[20px] sm:py-[40px] max-w-[250px] mx-4" />
+  <Summary dscValid={false} class="py-[20px] sm:py-[40px] max-w-[250px] mx-4" />
   <div className="flex justify-center my-6">
   <Btn class="btn2" action={goToCheckout} content="Checkout ➔" />
   </div>
