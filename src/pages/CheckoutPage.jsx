@@ -437,7 +437,7 @@ function CheckoutPage(props) {
           <section className="py-[20px] sm:py-[40px] flex flex-col gap-6 ">
         <h4 className="capitalize mt-8" >Discount Code</h4>
  
- <div className="flex flex-col md:flex-row justify-around items-center">
+ <div className="flex flex-col md:flex-row justify-around gap-2 items-center">
  <div>
  <input
               onChange={(ev) => setCode(ev.target.value)}
