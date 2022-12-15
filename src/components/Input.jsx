@@ -8,7 +8,7 @@ function Input(props) {
         <input
           placeholder={props.placeholder}
           type="text"
-          onKeyDown={props.action}
+          onChange={props.action}
           name={props.content}
           className="field"
         ></input>

@@ -15,7 +15,7 @@ function AddressInputArea(props) {
         Street & nr.
         <input
           className="field"
-          onKeyDown={(ev) => {
+        onChange={(ev) => {
             if (ev.target.value.length <= 0) {
               props.setAddressAlert(true);
             } else {
@@ -35,7 +35,7 @@ function AddressInputArea(props) {
           Zip Code
           <input
             className="field mx-1 sm:mx-2 sm:ml-6 "
-            onKeyDown={(ev) => {
+          onChange={(ev) => {
               if (ev.target.value.length <= 0) {
                 props.setAddressAlert(true);
               } else {

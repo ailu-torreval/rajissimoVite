@@ -55,7 +55,7 @@ function YourOrder(props) {
   <div className='px-4'>
   <h5 className="font-header ">Add coment for the venue</h5>
   <p>Special requests, allergies, dietary restrictions...</p>
-  <textarea rows={4} className='field mt-2 resize-none' onKeyDown={(ev)=> addMsg(ev)}        type="text"
+  <textarea rows={4} className='field mt-2 resize-none' onChange={(ev)=> addMsg(ev)}        type="text"
         placeholder="Your message here..." />
   </div>
   <Summary class="py-[20px] sm:py-[40px] max-w-[250px] mx-4" />

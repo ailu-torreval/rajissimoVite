@@ -394,7 +394,7 @@ function CheckoutPage(props) {
             <label className="flex flex-col mt-4">
               <p>CVC</p>
               <input
-                onKeyDown={(ev) => {
+              onChange={(ev) => {
                   if (isNaN(ev.target.value)) {
                     setCvcChecked(false);
                   } else {
