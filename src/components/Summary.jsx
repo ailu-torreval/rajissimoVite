@@ -29,10 +29,6 @@ function Summary(props) {
     }
   }
 
-
-
-
-
   return (
     <div className={props.class}>
       <h3 className="my-[20px]">Summary</h3>

@@ -103,9 +103,6 @@ function CheckoutPage(props) {
   }
 
   function checkCode() {
-    // const [dscValid, setDscValid]= useState(false);
-    // const [codeAdded, setCodeAdded] = useState(false)
-    // const [code, setCode ] = useState()
     if(dscValid) {
     } else {
       if(validCodes.includes(code)) {
@@ -437,7 +434,7 @@ function CheckoutPage(props) {
           <section className="py-[20px] sm:py-[40px] flex flex-col gap-6 ">
         <h4 className="capitalize mt-8" >Discount Code</h4>
  
- <div className="flex flex-col md:flex-row justify-around gap-2 items-center">
+ <div className="flex flex-col md:flex-row md:justify-between justify-around gap-2 items-center">
  <div>
  <input
               onChange={(ev) => setCode(ev.target.value)}
@@ -446,7 +443,7 @@ function CheckoutPage(props) {
                 placeholder="enter code here..."
               />
               {codeAdded && (
-                <p className="text-xs" >
+                <p className="text-xs mt-1" >
                   {dscValid ? <span className="text-green-400 text-xs italic ml-2">Discount Aplied.</span> : <span className="text-[#FF4F3A] text-xs italic ml-2">Sorry, Incorrect or expired code.</span>}
                 </p>
               )}
